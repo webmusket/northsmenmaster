@@ -1,0 +1,47 @@
+#metricM , .qty_inputA {
+	display: none;
+}
+
+ input[type=radio] { 
+	display: none;
+} 
+
+/*input[type=number] { 
+	width: 50px !important;
+}
+*/
+
+.mesure-imfbox input[type="radio"]:checked + .mimg {
+  outline: 2px solid blue;
+}
+
+.fit-mcontentbox input[type="radio"]:checked + .fit-mimg {
+  outline: 2px solid blue;
+}
+
+.finalreviewbox p{
+	display: inline-block;
+}
+
+.finalreviewbox span{
+	float: right;
+}
+
+.measurebox{
+	padding: 30px;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: black;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
