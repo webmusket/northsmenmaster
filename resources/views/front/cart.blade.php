@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('content')
-<div id="app">
-    <cart></cart>
-</div>
+
+    <cart ></cart>
 
 
-<script src="{{ asset('js/app.js') }} "></script>
+
+
 @endsection

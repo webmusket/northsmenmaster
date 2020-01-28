@@ -3,17 +3,19 @@
 namespace App\Providers;
 
 use Laravel\Nova\Nova;
-use Laravel\Nova\Cards\Help;
-use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\NovaApplicationServiceProvider;
-use App\Nova\Metrics\ProductCount;
-use App\Nova\Metrics\UserCount;
-use App\Nova\Metrics\NewOrders;
-use Infinety\MenuBuilder\MenuBuilder;
+use Asad\Report\Report;
 use Asad\Invoicer\Invoicer;
 use Asad\Settings\Settings;
-use Asad\Report\Report;
+use Laravel\Nova\Cards\Help;
+use App\Nova\Metrics\NewOrders;
+use App\Nova\Metrics\UserCount;
+use App\Nova\Metrics\ProductCount;
 use Asad\ProductStyle\ProductStyle;
+use Asad\SiteSettings\SiteSettings;
+use Illuminate\Support\Facades\Gate;
+use Infinety\MenuBuilder\MenuBuilder;
+use Laravel\Nova\NovaApplicationServiceProvider;
+
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -83,6 +85,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             new Settings,
             new ProductStyle,
             new Report,
+            new SiteSettings,
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
             new \Infinety\Filemanager\FilemanagerTool(),
             new \Infinety\MenuBuilder\MenuBuilder(),

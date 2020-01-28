@@ -348,7 +348,7 @@
 
                             </li>
                         @endguest
-                        <li> <a href="/gotocart"><i class="fa fa-shopping-bag">
+                        <li> <a href="/gotocart"><!-- <i class="fa fa-shopping-bag"> -->
 <?php 
 if(Auth::check()){
     $user_email = Auth::user()->email;
@@ -359,8 +359,10 @@ if(Auth::check()){
 }
 
  ?>
-                            <span style="background: yellow; border-radius: 50%; margin-bottom: 10px;" class="badge">{{$userCart}}</span></i></a></li>
-
+                            <!-- <span style="background: yellow; border-radius: 50%; margin-bottom: 10px;" class="badge">{{$userCart}}</span></i>-->
+                            <i class="fa" style="font-size:24px">&#xf07a;</i>
+<span class='badge badge-warning' id='lblCartCount'> {{$userCart}} </span>
+                            </a></li> 
                     </ul>
                 </div>
             </div>

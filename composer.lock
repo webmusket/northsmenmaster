@@ -4,15 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b05ba4fcf16c5eff0f02ce65051e8c7",
+    "content-hash": "6c26d40729bc8ce8e2c8d9351aac8eac",
     "packages": [
+        {
+            "name": "ampeco/nova-date-range-filter",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ampeco/nova-date-range-filter.git",
+                "reference": "ed55152f835d5d3540c958367b3dc2abb9a393aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ampeco/nova-date-range-filter/zipball/ed55152f835d5d3540c958367b3dc2abb9a393aa",
+                "reference": "ed55152f835d5d3540c958367b3dc2abb9a393aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ampeco\\Filters\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ampeco\\Filters\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova date range filter.",
+            "keywords": [
+                "date",
+                "filter",
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-04-05T11:24:56+00:00"
+        },
         {
             "name": "asad/invoicer",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/Invoicer",
-                "reference": "71da9e11aa40e88cb6216aaec96035706b69b18d"
+                "reference": "1504517ff664a876a43af42dede9dbecc92c942c"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -111,7 +154,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova-components/ProductStyle",
-                "reference": "2ca374d0ce6ac4d38e174a4974382710d4daf232"
+                "reference": "0c964ee7a7361721fa8b7973ec86c41cdf5d8f6d"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -193,6 +236,39 @@
             "autoload": {
                 "psr-4": {
                     "Asad\\Settings\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
+        },
+        {
+            "name": "asad/site-settings",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/SiteSettings",
+                "reference": "1bb806aa950604bb36db8ea90468a920da59a985"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Asad\\SiteSettings\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Asad\\SiteSettings\\": "src/"
                 }
             },
             "license": [

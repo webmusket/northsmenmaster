@@ -1,9 +1,13 @@
 <template>
+
+
+
 	<div class="cart-page">
 		<loading :active.sync="isLoading" 
         :can-cancel="true" 
         :on-cancel="onCancel"
-        :is-full-page="fullPage"></loading>
+        <!-- :is-full-page="fullPage"></loading> -->
+
 
     <div class="container">
         <div class="row">
@@ -108,7 +112,7 @@
 	    },
 		
 		name: 'cart',
-		props: [],
+		props: ['menu'],
 		data() {
 		    return {
 		       cartdata: '',
@@ -177,9 +181,9 @@
 					
                    	
                 })
-                .catch(function (error) {
-                    currentObj.errmsg = error;
-                });
+                // .catch(function (error) {
+                //     currentObj.errmsg = error;
+                // });
             }
 	    	
 		}

@@ -1,34 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Cart | E-Shopper</title>
-    <link href="{{ asset('eshoper/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('eshoper/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('eshoper/css/prettyPhoto.css') }}" rel="stylesheet">
-    <link href="{{ asset('eshoper/css/price-range.css') }}" rel="stylesheet">
-    <link href="{{ asset('eshoper/css/animate.css') }}" rel="stylesheet">
-	<link href="{{ asset('eshoper/css/main.css') }}" rel="stylesheet">
-	<link href="{{ asset('eshoper/css/responsive.css') }}" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="{{ asset('eshoper/js/html5shiv.js') }}""></script>
-    <script src="{{ asset('eshoper/js/respond.min.js') }}""></script>
-    <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
-
-<body>
-
-
 
 <section id="cart_items">
 		<div class="container">
@@ -198,13 +169,4 @@
 	</section> <!--/#cart_items-->
 
 
-
-
-    <script src="{{ asset('eshoper/js/jquery.js') }}"></script>
-    <script src="{{ asset('eshoper/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('eshoper/js/jquery.scrollUp.min.js') }}"></script>
-    <script src="{{ asset('eshoper/js/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ asset('eshoper/js/main.js') }}"></script>
-</body>
-</html>
 @endsection

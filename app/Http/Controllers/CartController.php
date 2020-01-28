@@ -245,6 +245,9 @@ class CartController extends Controller
     }
 
     public function checkout(Request $request){
+        if(!Auth::check()){
+            return redirect('/login');
+        }
         $user_id = Auth::user()->id;
         $user_email = Auth::user()->email;
         $userDetails = User::find($user_id);

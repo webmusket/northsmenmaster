@@ -52,6 +52,12 @@ Route::get('/pdf', function () {
     return view('invoices.order');
 });
 
+Route::get('/test', function () {
+
+    $data = App\Readymadeproduct::orderBy('id', 'DESC')->where('draft',0)->paginate(4);
+
+    return $data;
+});
 
 // Route::get('/usercart',function(){
 //     $session_id = Session::get('session_id');

@@ -19,7 +19,7 @@ import 'vue-toast-notification/dist/index.css'
 // add these before Vue is instantiated
 
 
-Vue.use(VueAxios,axios,VueToast)
+Vue.use(VueAxios,axios)
 Vue.use(VueToast, {
   // One of options
   position: 'bottom-right',

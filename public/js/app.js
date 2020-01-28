@@ -2016,6 +2016,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
 // Import component
  // Import stylesheet
 
@@ -2025,7 +2029,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a
   },
   name: 'cart',
-  props: [],
+  props: ['menu'],
   data: function data() {
     return {
       cartdata: '',
@@ -2088,9 +2092,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         } else {
           Vue.$toast.error(response.data['err'], {});
         }
-      })["catch"](function (error) {
-        currentObj.errmsg = error;
-      });
+      }); // .catch(function (error) {
+      //     currentObj.errmsg = error;
+      // });
     }
   }
 });
@@ -37526,7 +37530,7 @@ var LaravelVuePagination_component = normalizeComponent(
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.0
+ * @version 1.16.1
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -37872,7 +37876,7 @@ function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
 }
 
 function getSize(axis, body, html, computedStyle) {
@@ -38027,8 +38031,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var scrollParent = getScrollParent(children);
 
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+  var borderTopWidth = parseFloat(styles.borderTopWidth);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth);
 
   // In cases where the parent is fixed, we must ignore negative scroll in offset calc
   if (fixedPosition && isHTML) {
@@ -38049,8 +38053,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // differently when margins are applied to it. The margins are included in
   // the box of the documentElement, in the other cases not.
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop, 10);
-    var marginLeft = parseFloat(styles.marginLeft, 10);
+    var marginTop = parseFloat(styles.marginTop);
+    var marginLeft = parseFloat(styles.marginLeft);
 
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
@@ -38989,8 +38993,8 @@ function arrow(data, options) {
   // Compute the sideValue using the updated popper offsets
   // take popper margin in account because we don't have this info available
   var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
   var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
 
   // prevent arrowElement from being placed not contiguously to its popper
@@ -41180,216 +41184,194 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "cart-page" },
-    [
-      _c("loading", {
-        attrs: {
-          active: _vm.isLoading,
-          "can-cancel": true,
-          "on-cancel": _vm.onCancel,
-          "is-full-page": _vm.fullPage
-        },
-        on: {
-          "update:active": function($event) {
-            _vm.isLoading = $event
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-8" }, [
-            _c("div", { staticClass: "table-responsive-lg" }, [
-              _c("table", { staticClass: "table table-bordered" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.cartdata, function(product) {
-                    return _c("tr", [
-                      _c("th", [
-                        _c("div", { staticClass: "cart-product" }, [
-                          _vm._m(1, true),
-                          _vm._v(" "),
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v(_vm._s(product.product_name))
-                          ]),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              href: "/storage/" + product.image,
-                              alt: "cart item"
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(2, true),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "cart_quantity" }, [
-                        _c("div", { staticClass: "cart_quantity_button" }, [
-                          product.quantity > 1
-                            ? _c(
-                                "button",
-                                {
-                                  staticClass: "cart_quantity_down",
-                                  attrs: { href: "" },
-                                  on: {
-                                    click: function($event) {
-                                      product.quantity -= 1
-                                    }
+  return _c("div", { staticClass: "cart-page" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("div", { staticClass: "table-responsive-lg" }, [
+            _c("table", { staticClass: "table table-bordered" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.cartdata, function(product) {
+                  return _c("tr", [
+                    _c("th", [
+                      _c("div", { staticClass: "cart-product" }, [
+                        _vm._m(1, true),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v(_vm._s(product.product_name))
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            href: "/storage/" + product.image,
+                            alt: "cart item"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(2, true),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "cart_quantity" }, [
+                      _c("div", { staticClass: "cart_quantity_button" }, [
+                        product.quantity > 1
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "cart_quantity_down",
+                                attrs: { href: "" },
+                                on: {
+                                  click: function($event) {
+                                    product.quantity -= 1
                                   }
-                                },
-                                [_vm._v(" - ")]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("input", {
-                            staticClass: "cart_quantity_input",
-                            attrs: {
-                              type: "text",
-                              autocomplete: "off",
-                              size: "3"
-                            },
-                            domProps: { value: product.quantity },
+                                }
+                              },
+                              [_vm._v(" - ")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "cart_quantity_input",
+                          attrs: {
+                            type: "text",
+                            autocomplete: "off",
+                            size: "3"
+                          },
+                          domProps: { value: product.quantity },
+                          on: {
+                            change: function($event) {
+                              return _vm.selectChange(product.quantity)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "cart_quantity_up",
+                            attrs: { href: "" },
                             on: {
-                              change: function($event) {
-                                return _vm.selectChange(product.quantity)
+                              click: function($event) {
+                                product.quantity += 1
                               }
                             }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "cart_quantity_up",
-                              attrs: { href: "" },
-                              on: {
-                                click: function($event) {
-                                  product.quantity += 1
-                                }
-                              }
-                            },
-                            [_vm._v(" + ")]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          " $" +
-                            _vm._s(
-                              (_vm.totalprice =
-                                product.price * product.quantity)
-                            )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        attrs: {
-                          type: "hidden",
-                          name: "",
-                          value: "totalprice += totalprice"
-                        }
-                      })
-                    ])
-                  }),
-                  0
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("div", { staticClass: "cart-price-section" }, [
-              _c("ul", { staticClass: "pricing-tag" }, [
-                _c("li", [
-                  _c("label", { attrs: { for: "Subtotal" } }, [
-                    _vm._v("Subtotal:")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("$" + _vm._s(_vm.total))])
-                ]),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "label",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: this.coupon_data["amount"] != null,
-                          expression: "this.coupon_data['amount'] != null"
-                        }
-                      ],
-                      attrs: { for: "Shipping" }
-                    },
-                    [_vm._v("Coupon Amount:")]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(this.coupon_data["amount"]))])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  this.coupon_data["amount"] != null
-                    ? _c("label", { attrs: { for: "Total" } }, [
-                        _vm._v(
-                          "Total:   $" +
-                            _vm._s(_vm.total - this.coupon_data["amount"])
+                          },
+                          [_vm._v(" + ")]
                         )
                       ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "Total" } }, [
-                    _vm._v("Total:   ")
-                  ]),
-                  _c("span", [_vm._v("$" + _vm._s(_vm.total))])
-                ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        " $" +
+                          _vm._s(
+                            (_vm.totalprice = product.price * product.quantity)
+                          )
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: {
+                        type: "hidden",
+                        name: "",
+                        value: "totalprice += totalprice"
+                      }
+                    })
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4" }, [
+          _c("div", { staticClass: "cart-price-section" }, [
+            _c("ul", { staticClass: "pricing-tag" }, [
+              _c("li", [
+                _c("label", { attrs: { for: "Subtotal" } }, [
+                  _vm._v("Subtotal:")
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("$" + _vm._s(_vm.total))])
               ]),
               _vm._v(" "),
-              _c("form", { on: { submit: _vm.formSubmit } }, [
-                _c("label", [_vm._v("Coupon Code")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.coupon_code,
-                      expression: "coupon_code"
-                    }
-                  ],
-                  attrs: { size: "12", type: "text" },
-                  domProps: { value: _vm.coupon_code },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+              _vm._m(3),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "label",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: this.coupon_data["amount"] != null,
+                        expression: "this.coupon_data['amount'] != null"
                       }
-                      _vm.coupon_code = $event.target.value
-                    }
-                  }
-                }),
+                    ],
+                    attrs: { for: "Shipping" }
+                  },
+                  [_vm._v("Coupon Amount:")]
+                ),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "btn btn-default",
-                  attrs: { type: "submit", value: "Apply" }
-                })
+                _c("span", [_vm._v(_vm._s(this.coupon_data["amount"]))])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                this.coupon_data["amount"] != null
+                  ? _c("label", { attrs: { for: "Total" } }, [
+                      _vm._v(
+                        "Total:   $" +
+                          _vm._s(_vm.total - this.coupon_data["amount"])
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "Total" } }, [_vm._v("Total:   ")]),
+                _c("span", [_vm._v("$" + _vm._s(_vm.total))])
               ])
             ]),
             _vm._v(" "),
-            _vm._m(4)
-          ])
+            _c("form", { on: { submit: _vm.formSubmit } }, [
+              _c("label", [_vm._v("Coupon Code")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.coupon_code,
+                    expression: "coupon_code"
+                  }
+                ],
+                attrs: { size: "12", type: "text" },
+                domProps: { value: _vm.coupon_code },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.coupon_code = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "btn btn-default",
+                attrs: { type: "submit", value: "Apply" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(4)
         ])
       ])
-    ],
-    1
-  )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -60554,7 +60536,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
  // add these before Vue is instantiated
 
-Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_1___default.a, axios__WEBPACK_IMPORTED_MODULE_0___default.a, vue_toast_notification__WEBPACK_IMPORTED_MODULE_2___default.a);
+Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_1___default.a, axios__WEBPACK_IMPORTED_MODULE_0___default.a);
 Vue.use(vue_toast_notification__WEBPACK_IMPORTED_MODULE_2___default.a, {
   // One of options
   position: 'bottom-right',
@@ -61453,8 +61435,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp_new\htdocs\aaa\finalproject1\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp_new\htdocs\aaa\finalproject1\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp_new\htdocs\aaa\0125_lm_customization-settings_northsmen\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp_new\htdocs\aaa\0125_lm_customization-settings_northsmen\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -27,7 +27,9 @@
         "build-order-action": "cd nova-components/OrderAction && npm run dev",
         "build-order-action-prod": "cd nova-components/OrderAction && npm run prod",
         "build-activity-log": "cd nova-components/ActivityLog && npm run dev",
-        "build-activity-log-prod": "cd nova-components/ActivityLog && npm run prod"
+        "build-activity-log-prod": "cd nova-components/ActivityLog && npm run prod",
+        "build-site-settings": "cd nova-components/SiteSettings && npm run dev",
+        "build-site-settings-prod": "cd nova-components/SiteSettings && npm run prod"
     },
     "devDependencies": {
         "bootstrap": "^4.0.0",

@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\DateTime;
+use App\Nova\Filters\DateRange;
+use App\Nova\Filters\UsersOrder;
 
 class ActivityLog extends Resource
 {
@@ -47,7 +50,7 @@ class ActivityLog extends Resource
         return [
             ID::make()->sortable(),
             Text::make('name'),
-            Text::make('User Id','user_id'),
+            BelongsTo::make('User'),
             Text::make('Action Name','name'),
             Text::make('Action On Model','model_type'),
             Text::make('Action On Id','model_id'),
@@ -83,7 +86,10 @@ class ActivityLog extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new UsersOrder,
+            new DateRange,
+        ];
     }
 
     /**

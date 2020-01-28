@@ -12,6 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use Asad\OrderAction\OrderAction;
+use App\Nova\Actions\OrderStatus;
 
 class Order extends Resource
 {
@@ -135,6 +136,8 @@ class Order extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new OrderStatus)->showOnTableRow()
+        ];
     }
 }

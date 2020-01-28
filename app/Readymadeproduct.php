@@ -17,9 +17,13 @@ class Readymadeproduct extends Model implements TaggableInterface
         'category' => 'array'
     ];
 
+    // protected $appends = ['discounted_price'];
+
     // public function __construct(){
     //     $this->currency = currency()->setUserCurrency('EUR');
     // }
+
+
 
     public function getRegularPriceAttribute($val)
     {

@@ -193,7 +193,7 @@
                     </form>
                 </div>
             </tab>
-            <tab name="Document">
+            <tab name="HomePage Settings">
 
             </tab>
            
