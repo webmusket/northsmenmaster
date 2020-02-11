@@ -1,19 +1,20 @@
 <?php
 
-use App\Product;
-/*
-use App\Category;
-use App\Order;
 use App\Page;
+/*
 use App\User;
-use App\Notifications\TemplateEmail;
+use App\Order;
+use App\Product;
+use App\Setting;
+use App\Category;
 
 */
 
 
+
+
 use Illuminate\Http\Request;
-
-
+use App\Notifications\TestNotification;
 
 
 /*
@@ -27,6 +28,9 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
+
 Route::get('/', function () {
      // currency()->setUserCurrency('EUR');
     // echo currency()->getUserCurrency();
@@ -38,7 +42,57 @@ Route::get('/', function () {
 
     // return $ipdata;
     // $products = Product::all();
+    // Auth::user()->notify(new TestNotification("hello" , 'ball'));
     return view('front.index');
+});
+
+
+
+
+Route::group([
+    'prefix' => '{locale}', 
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => 'locale'
+  ], function() {
+
+    Route::get('/', function () {
+        // return redirect(App::getLocale());
+        return view('front.index');
+    });
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+
+
+
+
+
+Route::get('/default-setting', function () {
+
+    $homesettings = Setting::where('type',0)->pluck('value','key');
+
+    return response()->json([
+	    'homesettings' => $homesettings,
+	]);
+});
+
+
+Route::put('/updatesettings', function (Request $request) {
+    Setting::where('key',$request->identifier)->update(['value' => $request->value]);
+
+    return "Updated Sucessfully";
+
+});
+
+
+
+Route::get('/getdiscountedprice/{sale_price}', function ($sale_price) {
+    // $locale = currency()->getUserCurrency();
+    // // return $sale_price;
+    // return currency($sale_price, 'USD',  $locale);
 });
 
 Route::post('newsletter','NewsletterController@store');
@@ -74,22 +128,16 @@ Route::get('/test', function () {
 // });
 
 
-Route::get('/usercart', 'HomeController@userCart');
 
-Route::get('/profileinfo', 'HomeController@profileInfo');
-
-Route::get('/profilemeasurement', 'HomeController@profileMeasurement');
-
-Route::get('/showmeasurement/{id}', 'HomeController@showMeasurement');
 // Route::get('/shipment', function () {
 //     Shippo::setApiKey('shippo_test_a764a17b2e3bb8305e11f345827ec9e35600d5c9');
 
 
 Route::get('localization/{locale}','LocalizationController@index');
 
-Route::get('/lang/{locale}', 'HomeController@lang'); 
+Route::get('/lang/{locale}', 'LocalizationController@lang'); 
 
-Route::get('/currency/{curr}', 'HomeController@Currency'); 
+Route::get('/currency/{curr}', 'LocalizationController@Currency'); 
     
 // });
 
@@ -106,46 +154,7 @@ Route::get('/subscribe', function () {
     
 });
 
-Route::get('/measurement', function () {
 
-    // $products = Product::all();
-    return view('front.measurement');
-});
-
-Route::get('/startwizard', function () {
-
-    // $products = Product::all();
-    return view('front.wizard');
-});
-
-Route::get('/editmeasurement', function () {
-
-    // $products = Product::all();
-    return view('front.editwizard');
-});
-
-
-Route::post('/measrementdata', function (Request $request) {
-
-    $data = $request->all();
-    $measurement = new App\Measurement;
-    $measurement->chest = $request->chest;
-    $measurement->hips = $request->hips;
-    $measurement->stomach = $request->stomach;
-    $measurement->waist = $request->waist;
-    $measurement->jacket_length = $request->jacket_length;
-    $measurement->soulder_size = $request->soulder_size;
-    $measurement->sleeve_length = $request->sleeve_length;
-    $measurement->bicest = $request->bicest;
-    $measurement->pant_length = $request->pant_length;
-    $measurement->rise = $request->rise;
-    $measurement->thigh = $request->thigh;
-    $measurement->knees = $request->knees;
-    $measurement->neck = $request->neck;
-    $measurement->wrists = $request->wrists;
-
-    $measurement->save();
-});
 
 Route::get('/progress', function () {
 
@@ -341,4 +350,55 @@ Route::get('/home', 'HomeController@index')
     
 Route::get('profile', function () {
     // Only verified users may enter...
+})->middleware('verified');
+
+
+Route::get('/usercart', 'HomeController@userCart');
+
+Route::get('/profileinfo', 'HomeController@profileInfo');
+
+Route::get('/profilemeasurement', 'HomeController@profileMeasurement');
+
+Route::get('/showmeasurement/{id}', 'HomeController@showMeasurement');
+
+
+Route::get('/measurement', function () {
+
+    // $products = Product::all();
+    return view('front.measurement');
+})->middleware('verified');
+
+Route::get('/startwizard', function () {
+
+    // $products = Product::all();
+    return view('front.wizard');
+})->middleware('verified');
+
+Route::get('/editmeasurement', function () {
+
+    // $products = Product::all();
+    return view('front.editwizard');
+})->middleware('verified');
+
+
+Route::post('/measrementdata', function (Request $request) {
+
+    $data = $request->all();
+    $measurement = new App\Measurement;
+    $measurement->chest = $request->chest;
+    $measurement->hips = $request->hips;
+    $measurement->stomach = $request->stomach;
+    $measurement->waist = $request->waist;
+    $measurement->jacket_length = $request->jacket_length;
+    $measurement->soulder_size = $request->soulder_size;
+    $measurement->sleeve_length = $request->sleeve_length;
+    $measurement->bicest = $request->bicest;
+    $measurement->pant_length = $request->pant_length;
+    $measurement->rise = $request->rise;
+    $measurement->thigh = $request->thigh;
+    $measurement->knees = $request->knees;
+    $measurement->neck = $request->neck;
+    $measurement->wrists = $request->wrists;
+
+    $measurement->save();
 })->middleware('verified');

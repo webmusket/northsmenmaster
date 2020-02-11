@@ -30,24 +30,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        return view('profile.dashboard');
-        
+        $user = Auth::user();
+        return view('home')->with(compact('user'));
     }
 
-    public function lang($locale)
-    {
-        App::setLocale($locale);
-        session()->put('locale', $locale);
-        return redirect()->back();
-    }
 
-    public function Currency($curr)
-    {
-        // currency()->setUserCurrency('EUR');
-        session()->put('currency', $curr);
-        return redirect()->back();
-    }
     
 
     public function userCart(){

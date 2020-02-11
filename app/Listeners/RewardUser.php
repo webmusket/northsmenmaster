@@ -26,6 +26,20 @@ class RewardUser
      */
     public function handle(UserReferred $event)
     {
-        //
+        $referral = \App\ReferralLink::find($event->referralId);
+        if (!is_null($referral)) {
+            \App\ReferralRelationship::create(['referral_link_id' => $referral->id, 'user_id' => $event->user->id]);
+
+            // Example...
+            if ($referral->program->name === 'Sign-up Bonus') {
+                // User who was sharing link
+                $provider = $referral->user;
+                $provider->addCredits(15);
+                // User who used the link
+                $user = $event->user;
+                $user->addCredits(20);
+            }
+
+        }
     }
 }

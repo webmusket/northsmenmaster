@@ -1,128 +1,143 @@
-(function ($) {
-    "use strict";
+// (function ($) {
+//     "use strict";
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
-
-    jQuery(document).ready(function ($) {
-
-        // $('#qty_input').prop('disabled', true);
-        $('#plus-btn').click(function () {
-            $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
-        });
-        $('#minus-btn').click(function () {
-            $('#qty_input').val(parseInt($('#qty_input').val()) - 1);
-            if ($('#qty_input').val() == 0) {
-                $('#qty_input').val(1);
-            }
-
-        });
-//        $('.mobileLightBox').mobileLightBox();
+//     $(function () {
+//         $('[data-toggle="tooltip"]').tooltip()
+//     })
 
 
-        //        $('.customization-content').perfectScrollbar();
+//     jQuery(document).ready(function ($) {
 
-        //        $(".single-img-preview").owlCarousel({
-        //            items: 4,
-        //            loop: false,
-        //            mouseDrag: false,
-        //            touchDrag: false,
-        //            pullDrag: false,
-        //            rewind: true,
-        //            autoplay: false,
-        //            margin: 0,
-        //            nav: true
-        //        });
-        //        $('#carouselExampleControls').carousel({
-        //        
-        //        interval: false
-        //    });
+//         // $('#qty_input').prop('disabled', true);
+//         $('#plus-btn').click(function () {
+//             $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
+//         });
+//         $('#minus-btn').click(function () {
+//             $('#qty_input').val(parseInt($('#qty_input').val()) - 1);
+//             if ($('#qty_input').val() == 0) {
+//                 $('#qty_input').val(1);
+//             }
 
-        //        $(function () {
-        //            $('#main_menu').slicknav({
-        //                appendTo: "#mobile-menu",
-        //                label: "",
-        //                brand : 'Nothrsmen',
-        //            });
-        //        });
+//         });
+// //        $('.mobileLightBox').mobileLightBox();
 
-        $(".mobile-menu-icon").on('click',function() {
-            $(".mobile-menu-panel").addClass("mobile-menu-panel-click");
-            $(".mobile-display").addClass("active");
-        });
-        $(".mclose, .mobile-display").on('click', function(){
-            $(".mobile-menu-panel").removeClass("mobile-menu-panel-click");
-            $(".mobile-display").removeClass("active");
-        });
 
-        $(".bk-home-slider").owlCarousel({
-            items: 1,
-            autoplay: true,
-            loop: true,
-            nav: true,
-            responsive: false
-        });
+//         //        $('.customization-content').perfectScrollbar();
+
+//         //        $(".single-img-preview").owlCarousel({
+//         //            items: 4,
+//         //            loop: false,
+//         //            mouseDrag: false,
+//         //            touchDrag: false,
+//         //            pullDrag: false,
+//         //            rewind: true,
+//         //            autoplay: false,
+//         //            margin: 0,
+//         //            nav: true
+//         //        });
+//         //        $('#carouselExampleControls').carousel({
+//         //        
+//         //        interval: false
+//         //    });
+
+//         //        $(function () {
+//         //            $('#main_menu').slicknav({
+//         //                appendTo: "#mobile-menu",
+//         //                label: "",
+//         //                brand : 'Nothrsmen',
+//         //            });
+//         //        });
+
+//         $(".mobile-menu-icon").on('click',function() {
+//             $(".mobile-menu-panel").addClass("mobile-menu-panel-click");
+//             $(".mobile-display").addClass("active");
+//         });
+//         $(".mclose, .mobile-display").on('click', function(){
+//             $(".mobile-menu-panel").removeClass("mobile-menu-panel-click");
+//             $(".mobile-display").removeClass("active");
+//         });
+
+//         $(".bk-home-slider").owlCarousel({
+//             items: 1,
+//             autoplay: true,
+//             loop: true,
+//             nav: true,
+//             responsive: false
+//         });
         
         
-        $(".livemdel-slider").owlCarousel({
-            items: 1,
-            autoplay: false,
-            loop: true,
-            nav: false,
-            dots: true
-        });
+//         $(".livemdel-slider").owlCarousel({
+//             items: 1,
+//             autoplay: false,
+//             loop: true,
+//             nav: false,
+//             dots: true
+//         });
 
-        //        $(".single-testimonial-box").hover(function () {
-        //            $(".single-testimonial-box").removeClass('active');
-        //            $(this).addClass('active');
-        //        });
-        new WOW().init();
+//         //        $(".single-testimonial-box").hover(function () {
+//         //            $(".single-testimonial-box").removeClass('active');
+//         //            $(this).addClass('active');
+//         //        });
+//         new WOW().init();
 
-        //        var s = skrollr.init({
-        //            forceHeight: false
-        //        });
-    });
+//         //        var s = skrollr.init({
+//         //            forceHeight: false
+//         //        });
+//     });
 
-    $(".headermenu").sticky({
-        //        topSpacing: 0
-    });
+//     $(".headermenu").sticky({
+//         //        topSpacing: 0
+//     });
 
-    //    jQuery(window).load(function () {
-    //
-    //
-    //    });
-    $(".customization-slide").owlCarousel({
+//     //    jQuery(window).load(function () {
+//     //
+//     //
+//     //    });
+//     $(".customization-slide").owlCarousel({
 
-        items: 1,
-        autoplay: false,
-        loop: true,
-        nav: true,
-        navText: ["Back", "Next"],
-        mouseDrag: false
-    });
+//         items: 1,
+//         autoplay: false,
+//         loop: true,
+//         nav: true,
+//         navText: ["Back", "Next"],
+//         mouseDrag: false
+//     });
 
-    $(".measurement-slider").owlCarousel({
+//     $(".measurement-slider").owlCarousel({
 
-        items: 1,
-        autoplay: false,
-        loop: true,
-        //nav: true,
-        //navText: ["Back", "Next"],
-        //mouseDrag: false
-    });
+//         items: 1,
+//         autoplay: false,
+//         loop: true,
+//         //nav: true,
+//         //navText: ["Back", "Next"],
+//         //mouseDrag: false
+//     });
 
-}(jQuery));
+// }(jQuery));
 
-    // $ip = \Request::ip();
-    // $ipdata = trim(file_get_contents("http://ipinfo.io/php/{$ip}"));
+//     // $ip = \Request::ip();
+//     // $ipdata = trim(file_get_contents("http://ipinfo.io/php/{$ip}"));
 
-    // $ipdata = json_decode($ipdata, TRUE);
+//     // $ipdata = json_decode($ipdata, TRUE);
 
-    // return $ipdata;
-    // $products = Product::all();
+//     // return $ipdata;
+//     // $products = Product::all();
 $( document ).ready(function() {
+
+
+    $("#front").click(function (){
+        var image = $(this).find("img").attr("src");
+         $('#main').attr("src",image);
+    });
+    $("#back").click(function (){
+        var image = $(this).find("img").attr("src");
+         $('#main').attr("src",image);
+    });
+    $("#fabric").click(function (){
+        var image = $(this).find("img").attr("src");
+         $('#main').attr("src",image);
+    });
+
   $.get("http://ip-api.com/json", function(response) {
 
         let country = response.country;
@@ -134,7 +149,12 @@ $( document ).ready(function() {
     }, "jsonp");
 });
 
-
+function myFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    }
 
 
 

@@ -8,20 +8,20 @@
                 <div class="col-lg-6">
                     <div class="ct-preview-box clearfix">
                         <div class="ct-multi-img">
-                            <div class="side-preview">
-                                <img src="{{ asset('assets/img/customization/front-img.jpg') }}" alt="multiple img">
+                            <div id="front" class="side-preview">
+                                <img src="/storage/{{$products->front_image}}" alt="multiple img">
                                 <span>Front Preview</span>
                             </div>
-                            <div class="side-preview"><img src="{{ asset('assets/img/customization/back-img.jpg') }}" alt="multiple img">
+                            <div id="back" class="side-preview"><img src="/storage/{{$products->back_image}}" alt="multiple img">
                                 <span>Back Preview</span>
                             </div>
-                            <div class="side-preview"><img src="{{ asset('assets/img/customization/back-img.jpg') }}" alt="multiple img">
+                            <div id="fabric" class="side-preview"><img src="/storage/{{$products->fabric_image}}" alt="multiple img">
                                 <span>Fabrics</span>
                             </div>
                         </div>
-                        <div class="single-preview-img">
-                           <a href="./assets/img/customization/Notrchman-Live-Model_for-tony.png') }}" class="mobileLightBox">
-  <img src="/storage/{{$products->image}}" alt="multiple img">
+                        <div  class="single-preview-img">
+                           <a href="" class="mobileLightBox">
+  <img id="main" src="/storage/{{$products->front_image}}" alt="multiple img">
   </a>
                             
                         </div>
@@ -49,7 +49,7 @@
                     $product_type = $path[4];
 
                     ?>
-                    
+                    {{ gettype($products->sale_price) }}
                     <div class="product-button">
 <form name="addtoCartForm" id="addtoCartForm" action="{{ url('add-cart') }}" method="post">{{ csrf_field() }}
     <input type="hidden" name="product_id" value="{{ $products->id }}">
@@ -57,6 +57,7 @@
     <input type="hidden" name="product_code" value="{{ $products->barcode }}">
     <input type="hidden" name="image" value="{{ $products->image }}">
     <input type="hidden" name="product_color" value="{{ $products->sku }}">
+
     <input type="hidden" name="price" id="price" value="{{ $products->sale_price }}">
 
 
@@ -92,15 +93,33 @@
                             </li>
                         </ul>
                     </div>
+
+
+
                     <div class="single-product-share">
                         <h4>Share This on: </h4>
-                        <ul>
+                        <input id="myInput" style=" width: 424px;
+    padding: 5px;
+    margin-bottom: 15px;" value="{{Request::url()}}" type="text">
+                        <button  class="btn btn-secondary ml-2 mb-1" onclick="myFunction()">Copy link</button>
+                        <?php  
+
+                            $share = Share::page(Request::url(), 'Share title')
+                                    ->facebook()
+                                    ->twitter()
+                                    ->linkedin('Extra linkedin summary can be passed here')
+                                    ->whatsapp();
+
+                            echo($share);
+                        ?>
+                        
+                        <!-- <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                             <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
+                        </ul> -->
                     </div>
 
                     <div class="row">

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Discount;
 use Cartalyst\Tags\TaggableTrait;
 use Cartalyst\Tags\TaggableInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -17,21 +18,29 @@ class Readymadeproduct extends Model implements TaggableInterface
         'category' => 'array'
     ];
 
-    // protected $appends = ['discounted_price'];
+    // protected $appends = ['discount'];
 
     // public function __construct(){
-    //     $this->currency = currency()->setUserCurrency('EUR');
+    //     // $this->currency = currency()->setUserCurrency('EUR');
+    // }
+
+    // public function getDiscountAttribute(){
+    //     $discount = Discount::where('status',1)->first();
+    //     if($discount->amount_type == "Fixed"){
+            
+    //     }else{
+
+    //     }
     // }
 
 
+    // public function getRegularPriceAttribute($val)
+    // {
 
-    public function getRegularPriceAttribute($val)
-    {
+    //     $locale = currency()->getUserCurrency();
 
-        $locale = currency()->getUserCurrency();
-
-        return currency($val, 'USD',  $locale);
-    }
+    //     return currency($val, 'USD',  $locale);
+    // }
 
     public function getSalePriceAttribute($val)
     {
@@ -41,13 +50,13 @@ class Readymadeproduct extends Model implements TaggableInterface
         return currency($val, 'USD',  $locale);
     }
 
-    public function getPurchasePriceAttribute($val)
-    {
+    // public function getPurchasePriceAttribute($val)
+    // {
         
-        $locale = currency()->getUserCurrency();
+    //     $locale = currency()->getUserCurrency();
 
-        return currency($val, 'USD',  $locale);
-    }
+    //     return currency($val, 'USD',  $locale);
+    // }
 
     //const CATEGORY = 'category';
 

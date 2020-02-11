@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
 
 
@@ -18,6 +19,11 @@ import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/index.css'
 // add these before Vue is instantiated
 
+
+// window.$  = require('jquery');
+// import jQuery from "jquery";
+// const $ = jQuery;
+// window.$ = $;
 
 Vue.use(VueAxios,axios)
 Vue.use(VueToast, {
@@ -35,6 +41,9 @@ Vue.use(VueRouter)
 
 import {routes} from './routes';
 
+
+import VueFroala from 'vue-froala-wysiwyg'
+Vue.use(VueFroala)
 
 // import Vue from 'vue'
 // import axios from 'axios'
@@ -67,6 +76,8 @@ Vue.component('notification', require('./components/Notification.vue').default);
 Vue.component('shipping', require('./components/Shipping.vue').default);
 
 Vue.component('profile', require('./components/Profile.vue').default);
+
+Vue.component('home', require('./components/home/Home.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

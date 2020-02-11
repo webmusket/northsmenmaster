@@ -101,7 +101,9 @@ class Virtualproduct extends Resource
 
     protected function imageFields(){
         return[
-            FilemanagerField::make('Image')->displayAsImage(),
+            FilemanagerField::make('Image','front_image')->displayAsImage(),
+            FilemanagerField::make('Image','back_image')->displayAsImage(),
+            FilemanagerField::make('Image','fabric_image')->displayAsImage(),
         ];
     }
     protected function priceFields(){

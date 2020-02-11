@@ -39,7 +39,8 @@
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-<!-- <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
+ <!-- <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script> -->
+ <!--
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
@@ -51,8 +52,8 @@
 
 
 <script src="{{ asset('js/app.js') }}" defer></script>
-
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
 

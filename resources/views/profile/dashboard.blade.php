@@ -5,6 +5,22 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="rightcontainer">
+
+
+
+
+
+
+@if(isset($service))
+@if($service == 'facebook')
+<div class="title m-b-md">
+    Welcome {{ $details->user['name']}} ! <br> Your email is : {{
+    $details->user['email'] }} <br> You are {{ $details->user['gender'] }}.
+</div>
+@endif
+@endif
+
+
                     <div class="alert alert-secondary">
                         <ul>
                             <li>

@@ -25,7 +25,7 @@ class UserReferred
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($referralId, $user)
     {
         $this->referralId = $referralId;
         $this->user = $user;

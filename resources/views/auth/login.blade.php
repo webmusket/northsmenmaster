@@ -71,12 +71,14 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <span>or</span>
+                                <a class="btn btn-link" href="{{ route('register') }}">Register</a>
                             </div>
                         </div>
                     </form>
                      <br>
                     <div class="panel-body">
-                        <div class="panel-body">
+                        <div style="text-align:center;" class="panel-body">
                             <a class="btn btn-primary" href="redirect/facebook">
                                 Facebook Login
                             </a>

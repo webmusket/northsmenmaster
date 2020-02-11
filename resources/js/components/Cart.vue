@@ -90,7 +90,7 @@
                 <div class="check-now">
                 <p>Hey there! We’re all set to make your outfit flawless-fit approved.</p>
                 <a href="/checkout" class="checkuotbtn">Checkout now</a> or
-                <a href="measurements.php" class="mbtn">Update Mesurement</a>
+                <a href="/measurement" class="mbtn">Update Mesurement</a>
                 </div>
             </div>
         </div>

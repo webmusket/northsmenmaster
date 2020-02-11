@@ -30,6 +30,10 @@
 				</select>
 			</div>
 
+			<div class="col-lg-2">
+				<button id="clear" class="btn btn-primary" @click="$parent.getResults()">Clear</button>
+			</div>
+
 		</div>		
 	</div>
 </template>
@@ -83,6 +87,21 @@
 	}
 </script>
 
-<style>
-	
+<style scoped>
+	select{
+		border: none;
+		margin-top: 13px;
+		background: none;
+		font-size: 16px;
+		color: #b9811a;
+		cursor: pointer;
+	}
+
+
+	#clear{
+		    background: #AB8D48;
+    		margin-top: 9px;
+	}
+
+
 </style>

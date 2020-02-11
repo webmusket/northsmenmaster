@@ -42,13 +42,22 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return 'users.' . $this->id;
     }
-    
     public function getReferrals()
     {
         return ReferralProgram::all()->map(function ($program) {
             return ReferralLink::getReferral($this, $program);
         });
     }
+
+    public function addCredits(){
+        return 111;
+    }
+    // public function getReferrals()
+    // {
+    //     return ReferralProgram::all()->map(function ($program) {
+    //         return ReferralLink::getReferral($this, $program);
+    //     });
+    // }
 
     public function shippingAddress()
     {

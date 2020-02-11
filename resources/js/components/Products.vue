@@ -25,7 +25,7 @@
 						<ul>
 							<dropdown  v-on:childToParent="onChildClick"></dropdown>
 
-							<button @click="onbuttonClick()">Clear All filter</button>
+							
 						</ul>
 					</div>
 				</div>
@@ -48,8 +48,8 @@
 					<div class="product-info">
 						<h3>{{pro.title}}</h3>
 						<div class="product-tag">
-							<span class="orginal-price"><del>{{pro.sale_price}}</del></span>
-							<span class="sales-price">{{discountPrice(pro.sale_price)}}</span>
+							<span class="orginal-price"><del>{{pro.sale_price }}</del></span>
+							<span class="sales-price">{{ getdiscountedprice(pro.sale_price)}}</span>
 							<span class="discounttg">10% OFF</span>
 						</div>
 					</div>
@@ -59,13 +59,13 @@
 		</div>
 
 		<span v-if="fromChild == null ">
-			<pagination :data="product" @pagination-change-page="getResults">
+			<pagination class="d-flex justify-content-center px-2" :data="product" @pagination-change-page="getResults">
 				<span slot="prev-nav">&lt; Previous</span>
 				<span slot="next-nav">Next &gt;</span>
 			</pagination>
 		</span>
 		<span v-if="fromChild != null ">
-			<pagination :data="product" @pagination-change-page="getfilterresult">
+			<pagination class="d-flex justify-content-center my-2" :data="product" @pagination-change-page="getfilterresult">
 				<span slot="prev-nav">&lt; Previous</span>
 				<span slot="next-nav">Next &gt;</span>
 			</pagination>
@@ -109,6 +109,7 @@
 		},
 		mounted () {
 			this.onCancel()
+		
 		    //this.product = JSON.parse(this.products)
 
 	        // Do something useful with the data in the template
@@ -248,8 +249,19 @@
 				    });
 		    	}
 	    	},
-	    	discountPrice(sale_price){
-	    		
+	    	getdiscountedprice(sale_price){
+
+				let number = sale_price.match(/[0-9]+/g);
+				number = Number(number[0]);
+
+				return number;
+				
+				const uri = '/getdiscountedprice/' + sale_price ;
+	    		this.$http.get(uri).then((response) => {  
+					// return response.data
+					console.log(response.data)
+				});
+					
 	    	},
 	    	onbuttonClick(){
 	        	// this.filter.season =  "season"

@@ -2,14 +2,18 @@
 
 namespace App;
 
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Model;
+
 
 class ReferralLink extends Model
 {
+
     protected $fillable = ['user_id', 'referral_program_id'];
 
     protected static function boot()
     {
+        parent::boot();
         static::creating(function (ReferralLink $model) {
             $model->generateCode();
         });

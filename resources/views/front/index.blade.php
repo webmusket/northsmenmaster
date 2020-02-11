@@ -4,44 +4,15 @@
 
 
 
-<!--  mobile singleaction image-->
- 
- <div class="mobile-hero-image">
-     <img src="./assets/img/slider-1.jpg" alt="Silder">
- </div>
-  
-<?php 
-$settings = App\Setting::all();
-
- ?>
-  
-   <!--start slider -->
-<div class="bk-home-slider owl-carousel">
-    @foreach($settings as $setting)
-    <div class="bk-single-slider">
-        <img src="/images/{{$setting->image}}" alt="Silder">
-    </div>
-    @endforeach
-    <!-- <div class="bk-single-slider">
-        <img src="./assets/img/slider-2.jpg" alt="Silder">
-    </div>
-    <div class="bk-single-slider">
-        <img src="./assets/img/slider-3.jpg" alt="Silder">
-    </div>
-    <div class="bk-single-slider">
-        <img src="./assets/img/slider-4.jpg" alt="Silder">
-    </div> -->
-</div>
-<!--end slider section-->
-
 
 <!--Product Customize-->
 <div class="section-padding">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
+
+  
                 <div class="section-title">
-                    <a class="btn btn-primary" href="http://ip-api.com/json/">Get location</a>
                     <h2>Get Customized Now</h2>
                     <p>{{ trans('indexpage.custom')}}</p>
                 </div>
@@ -254,10 +225,6 @@ $settings = App\Setting::all();
     </div>
 </div>
 <!--   end call to action-->
-
-
-
-
 
 
 @endsection

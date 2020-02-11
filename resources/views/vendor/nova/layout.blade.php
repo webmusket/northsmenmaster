@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=1280">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @include('nova-echo::meta')
 
     <title>{{ \Laravel\Nova\Nova::name() }}</title>
 
@@ -192,9 +193,13 @@
                         <global-search dusk="global-search-component"></global-search>
                     @endif
 
+                    
+
                     <dropdown class="ml-auto h-9 flex items-center dropdown-right">
                         @include('nova::partials.user')
                     </dropdown>
+                        <!-- @include('nova::partials.notification') -->
+                        @include('nova_notification_feed::notification_feed')
                 </div>
 
                 <div data-testid="content" class="px-view py-view mx-auto">
@@ -229,9 +234,40 @@
         @endif
     @endforeach
 
+
+<script>
+Pusher.logToConsole = true;
+    window.Laravel = {!! json_encode([
+        'user' => auth()->check() ? auth()->user()->id : null,
+    ]) !!};
+
+
+
+</script>
+
+
     <!-- Start Nova -->
     <script>
         Nova.liftOff()
+
+
+        // window.Echo.channel('App.User.' + window.Laravel.user)
+        //     .listen('TestNotification', (e) => {
+        //         alert('Pusher is working')
+        //     });
+
+
+        // var pusher = new Pusher('1c2d4a45a9d998d5a4f8', {
+        //     cluster: 'ap2',
+        //     encrypted: true
+        // });
+
+        // var channel = pusher.subscribe('App.User.' + window.Laravel.user);
+        // channel.bind('pusher:subscribe', function(data) {
+        //   alert(data);
+        //     console.log(data);
+        // });
+
     </script>
 </body>
 </html>

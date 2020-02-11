@@ -21,6 +21,8 @@ class ProductsController extends Controller
     public function getproducts($url = null){
         $this->url = $url;
         $category = Category::where('slug', $url)->first();
+
+        
         
         $categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
         return view('front.products')->with(compact('url','category','categories'));
@@ -30,6 +32,8 @@ class ProductsController extends Controller
 
         $category = Category::where('slug', $url)->first();
 
+
+   
         //$categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
 
         $data = Virtualproduct::orderBy('id', 'DESC')->whereJsonContains('category', $category->id)->where('draft',0)->paginate(4);
@@ -42,6 +46,7 @@ class ProductsController extends Controller
 
         $category = Category::where('slug', $url)->first();
 
+      
         //$categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
 
         $data = Readymadeproduct::orderBy('id', 'DESC')->where('draft',0)->whereJsonContains('category', $category->id)->paginate(4);
