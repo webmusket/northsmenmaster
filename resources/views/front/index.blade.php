@@ -1,10 +1,5 @@
 @extends('layouts.master')
 @section('content')
-
-
-
-
-
 <!--Product Customize-->
 <div class="section-padding">
     <div class="container-fluid">
