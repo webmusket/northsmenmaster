@@ -29,7 +29,7 @@ class CartController extends Controller
     }
 
     public function gotocart(){
-        return view('front.cart1');
+        return view('front.cart');
     }
     public function addtocart(Request $request){
 
@@ -88,8 +88,8 @@ class CartController extends Controller
             
             // $userCart[$key]->image = $productDetails->image;
         }
-        /*echo "<pre>"; print_r($userCart); die;*/
-         // return view('front.cart1')->with(compact('userCart'));
+        // echo "<pre>"; print_r($userCart); die;
+         // return view('front.cart')->with(compact('userCart'));
 
         return $userCart;
     }

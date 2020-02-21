@@ -113,6 +113,29 @@ Route::get('/test', function () {
     return $data;
 });
 
+
+Route::get('/cart-increment/{id}', function ($id) {
+
+    $cart = App\Cart::find($id);
+
+    $cart->quantity = $cart->quantity + 1;
+
+    $cart->save();
+
+    return "Quantity has updated Sucessfully";
+});
+
+Route::get('/cart-decrement/{id}', function ($id) {
+
+    $cart = App\Cart::find($id);
+
+    $cart->quantity = $cart->quantity - 1;
+
+    $cart->save();
+
+    return "Quantity has updated Sucessfully";
+});
+
 // Route::get('/usercart',function(){
 //     $session_id = Session::get('session_id');
 

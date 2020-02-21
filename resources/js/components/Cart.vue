@@ -40,10 +40,10 @@
                                 <td class="cart_quantity">
                                 <div class="cart_quantity_button">
                                     
-                                    <button @click="product.quantity -= 1" v-if="product.quantity > 1" class="cart_quantity_down" href=""> - </button>
+                                    <button @click="decrement(product.id)" v-if="product.quantity > 1" class="cart_quantity_down" href=""> - </button>
                                     <input class="cart_quantity_input" type="text"  :value="product.quantity" @change="selectChange(product.quantity)" autocomplete="off" size="3">
                                    
-                                    <button @click="product.quantity += 1" class="cart_quantity_up" href=""> + </button>
+                                    <button @click="increment(product.id)" class="cart_quantity_up" href=""> + </button>
                                   
                               
                                 </div>
@@ -100,6 +100,8 @@
 </template>
 <script>
 
+// 
+
 		// Import component
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
@@ -152,6 +154,22 @@
 
 	    },
 		methods: {
+            increment(id){
+                const uri = `/cart-increment/${id}`;
+                this.$http.get(uri).then((response) => {  
+                    console.log(response.data)
+                    window.location.reload(true) 
+                })
+                // onComplete : () => window.location.reload(true)
+            },
+            decrement(id){
+                const uri = `/cart-decrement/${id}`;
+                this.$http.get(uri).then((response) => {  
+                    console.log(response.data)
+                    window.location.reload(true)
+                })
+                // onComplete : () => window.location.reload(true)
+            },
 			onCancel(){
 				this.isLoading = true;
                 // simulate AJAX

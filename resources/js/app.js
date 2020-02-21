@@ -71,8 +71,6 @@ Vue.component('progressbar', require('./components/Progress.vue').default);
 
 Vue.component('cart', require('./components/Cart.vue').default);
 
-Vue.component('notification', require('./components/Notification.vue').default);
-
 Vue.component('shipping', require('./components/Shipping.vue').default);
 
 Vue.component('profile', require('./components/Profile.vue').default);

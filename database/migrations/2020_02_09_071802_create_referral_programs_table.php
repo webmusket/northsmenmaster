@@ -14,7 +14,11 @@ class CreateReferralProgramsTable extends Migration
     public function up()
     {
         Schema::create('referral_programs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('referral_program_id')->unsigned();
+            $table->string('code', 36)->index();
+            $table->unique(['referral_program_id', 'user_id']);
             $table->timestamps();
         });
     }
