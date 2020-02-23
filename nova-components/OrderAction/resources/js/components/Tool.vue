@@ -13,10 +13,10 @@
 					    		<h3>{{event.updated_at}}</h3>
 					    		<span>User Id</span>
 					    		<p>{{event.user_id}}</p>
-					    		<span>From Status</span>
-					    		<p>{{JSON.parse(event.original).order_status }}</p>
-					    		<span>To Status</span>
-					    		<p>{{ JSON.parse(event.changes).order_status }}</p>
+					    		
+					    		<p v-if="JSON.parse(event.original) != NULL"><span>From Status</span>{{JSON.parse(event.original).order_status }}</p>
+					    		
+					    		<p v-if="JSON.parse(event.original) != NULL"><span>To Status</span>{{ JSON.parse(event.changes).order_status }}</p>
 					    	</timeline-item>
 					    </span>
 					</timeline>

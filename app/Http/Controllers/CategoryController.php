@@ -37,6 +37,11 @@ class CategoryController extends Controller
 
         $category = Category::where('parent',$data['parent'])->get();
 
+        $delimiter = '-';
+
+
+
+        $slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $data['name']))))), $delimiter));
 
         foreach ($category as $cat) {
             if($cat->name == $data['name']){
@@ -46,6 +51,7 @@ class CategoryController extends Controller
 
     	$category = new Category;
 		$category->name = $data['name'];
+        $category->slug = $slug;
 		$category->parent = $data['parent'];
 		$category->save();
 

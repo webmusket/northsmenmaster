@@ -14,24 +14,25 @@
 				<select @change="onChange($event)" v-model="filter.pattern">
 				  <option disabled value="pattern">Pattern</option>
 				  
-				  <option v-for = 'pattern in filterabledata[1]' :value="pattern.id">{{pattern.name}}</option>
+				  <option v-for = 'pattern in filterabledata[2]' :value="pattern.id">{{pattern.name}}</option>
 				</select>
 			</div>
 			<div class="col-lg-2">
 				<select @change="onChange($event)" v-model="filter.fabric">
 				  <option disabled value="fabric">Fabric</option>
-				  <option v-for = 'fabric in filterabledata[2]' :value="fabric.id">{{fabric.name}}</option>
+				  <option v-for = 'fabric in filterabledata[3]' :value="fabric.id">{{fabric.name}}</option>
 				</select>
 			</div>
 			<div class="col-lg-2">
 				<select @change="onChange($event)" v-model="filter.season">
 				  <option disabled value="season">Season</option>
-				  <option v-for = 'season in filterabledata[3]' :value="season.id">{{season.name}}</option>
+				  <option v-for = 'season in filterabledata[1]' :value="season.id">{{season.name}}</option>
 				</select>
 			</div>
 
 			<div class="col-lg-2">
-				<button id="clear" class="btn btn-primary" @click="$parent.getResults()">Clear</button>
+				<!-- <button id="clear" class="btn btn-primary" @click="$parent.getResults()">Clear</button> -->
+				<button id="clear" class="btn btn-primary" @click="makeclear()">Clear</button>
 			</div>
 
 		</div>		
@@ -74,14 +75,18 @@
 	        onChange(event) {
 	            this.$emit('childToParent', this.filter)
 	        },
-	        // onbuttonClick(){
-	        // 	this.filter.season =  "season"
-	        // 	this.filter.fabric = 'fabric'
-		       //  this.filter.color = 'color'
-		       //  this.filter.pattern = 'pattern'
+	        makeclear(){
+	        	this.$parent.getResults()
+	        	this.onbuttonClick()
+	        },
+	        onbuttonClick(){
+	        	this.filter.season =  "season"
+	        	this.filter.fabric = 'fabric'
+		        this.filter.color = 'color'
+		        this.filter.pattern = 'pattern'
 
 		       //  this.onChange(page)
-	        // }
+	        }
 	    }
 	    
 	}

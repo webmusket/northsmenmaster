@@ -48,6 +48,13 @@ Route::get('/', function () {
 
 
 
+Route::get('/customization', function () {
+
+    $src = '"https://google.com" width="500" height="608" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"';
+
+    return view('front.custom',compact('src'));
+});
+
 
 Route::group([
     'prefix' => '{locale}', 

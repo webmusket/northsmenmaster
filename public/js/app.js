@@ -4439,6 +4439,10 @@ __webpack_require__.r(__webpack_exports__);
     getResults: function getResults(page, filter) {
       var _this4 = this;
 
+      // this.filter.season =  "season"
+      //   	this.filter.fabric = 'fabric'
+      //    this.filter.color = 'color'
+      //    this.filter.pattern = 'pattern'
       if (typeof page === 'undefined') {
         page = 1;
       }
@@ -4636,6 +4640,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'dropdown',
   //props: ['products'],
@@ -4664,14 +4669,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onChange: function onChange(event) {
       this.$emit('childToParent', this.filter);
-    } // onbuttonClick(){
-    // 	this.filter.season =  "season"
-    // 	this.filter.fabric = 'fabric'
-    //  this.filter.color = 'color'
-    //  this.filter.pattern = 'pattern'
-    //  this.onChange(page)
-    // }
-
+    },
+    makeclear: function makeclear() {
+      this.$parent.getResults();
+      this.onbuttonClick();
+    },
+    onbuttonClick: function onbuttonClick() {
+      this.filter.season = "season";
+      this.filter.fabric = 'fabric';
+      this.filter.color = 'color';
+      this.filter.pattern = 'pattern'; //  this.onChange(page)
+    }
   }
 });
 
@@ -45259,7 +45267,7 @@ var render = function() {
               _vm._v("Pattern")
             ]),
             _vm._v(" "),
-            _vm._l(_vm.filterabledata[1], function(pattern) {
+            _vm._l(_vm.filterabledata[2], function(pattern) {
               return _c("option", { domProps: { value: pattern.id } }, [
                 _vm._v(_vm._s(pattern.name))
               ])
@@ -45309,7 +45317,7 @@ var render = function() {
               _vm._v("Fabric")
             ]),
             _vm._v(" "),
-            _vm._l(_vm.filterabledata[2], function(fabric) {
+            _vm._l(_vm.filterabledata[3], function(fabric) {
               return _c("option", { domProps: { value: fabric.id } }, [
                 _vm._v(_vm._s(fabric.name))
               ])
@@ -45359,7 +45367,7 @@ var render = function() {
               _vm._v("Season")
             ]),
             _vm._v(" "),
-            _vm._l(_vm.filterabledata[3], function(season) {
+            _vm._l(_vm.filterabledata[1], function(season) {
               return _c("option", { domProps: { value: season.id } }, [
                 _vm._v(_vm._s(season.name))
               ])
@@ -45377,7 +45385,7 @@ var render = function() {
             attrs: { id: "clear" },
             on: {
               click: function($event) {
-                return _vm.$parent.getResults()
+                return _vm.makeclear()
               }
             }
           },

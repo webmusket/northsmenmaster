@@ -226,6 +226,13 @@
 			    }
 		    },
 		    getResults(page,filter){
+		    	// this.filter.season =  "season"
+	      //   	this.filter.fabric = 'fabric'
+		     //    this.filter.color = 'color'
+		     //    this.filter.pattern = 'pattern'
+		   
+
+
 	    		if (typeof page === 'undefined') {
                     page = 1;
                 }

@@ -36,23 +36,40 @@
                 {{ firstError }}
             </p>
 
-              <a @click="openform()" class="btn btn-primary" style="height: 40px; margin-top: 10px;" > add new category</a>
-              <div v-if='addcat'>
+              <a @click="openform()" class="btn btn-default btn-primary inline-flex items-center relative" style="height: 40px; margin-top: 10px;" > add new category</a>
+              <div style="width: 400px" v-if='addcat' >
+                
                 <form style=" margin-top: 10px;" @submit.prevent="updatecategory">
-                  <div id="addcat">
-                        <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" v-model="addcategory.name" placeholder="Add category">
-                        
+                  <div class="p-8" id="addcat">
+                    <div class="flex flex-wrap justify-between mb-6">
+                      <h2 class=" text-90 font-normal text-xl">Add Menu item</h2>
+                    </div>
+                    <div class="flex border-b border-40">
+                        <div class="w-1/5 py-4">
+                          <label class="inline-block text-80 pt-2 leading-tight">
+                              Name
+                          </label>
                       </div>
+                        <div class="py-4 w-4/5">
+                            <input type="text" class="w-full form-control form-input form-input-bordered" id="exampleInputEmail1" v-model="addcategory.name" placeholder="Add category">
+                        </div>
+                    </div>
+                    <div class="flex border-b border-40">
+                        <div class="w-1/5 py-4">
+                            <label class="inline-block text-80 pt-2 leading-tight">
+                                Parent
+                            </label>
+                        </div>
+                        <div class="py-4 w-4/5">
+                            <select  class="w-full form-control form-select" v-model='addcategory.parent'>
+                              <option v-model="parent" value="0" selected>------Parent Category------</option>
+                              <option v-for='cat in catnames' v-model='parent' :value='cat[0]'> {{cat[1]}} </option>
+                          </select>
+                        </div>
+                    </div>
 
-
-                      <select  class="form-control" v-model='addcategory.parent'>
-                          <option v-model="parent" value="0" selected>------Parent Category------</option>
-                          <option v-for='cat in catnames' v-model='parent' :value='cat[0]'> {{cat[1]}} </option>
-                      </select>
-                     
                       <br>
-                      <button type="submit"  class="btn btn-secondary">Add CAtegory</button>
+                      <button type="submit"  class="btn btn-default btn-primary inline-flex items-center relative">Add</button>
                   </div>  
                 </form> 
               </div>     
