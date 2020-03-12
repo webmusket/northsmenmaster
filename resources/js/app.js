@@ -34,12 +34,12 @@ Vue.use(VueToast, {
 });
 
 
-import VueRouter from 'vue-router'
+// import VueRouter from 'vue-router'
 
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
 
 
-import {routes} from './routes';
+// import {routes} from './routes';
 
 
 import VueFroala from 'vue-froala-wysiwyg'
@@ -82,14 +82,14 @@ Vue.component('home', require('./components/home/Home.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const router = new VueRouter({
-    routes, // short for `routes: routes`
-    mode:'hash',
+// const router = new VueRouter({
+//     routes, // short for `routes: routes`
+//     mode:'hash',
 
-})
+// })
 
 
 const app = new Vue({
     el: '#app',
-    router,
+    // router,
 });

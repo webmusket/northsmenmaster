@@ -383,20 +383,50 @@ Route::get('profile', function () {
 })->middleware('verified');
 
 
-Route::get('/usercart', 'HomeController@userCart');
+// Users Login/Register Page
+Route::get('/login-register','UsersController@userLoginRegister');
 
-Route::get('/profileinfo', 'HomeController@profileInfo');
+Route::match(['get','post'],'forgot-password','UsersController@forgotPassword');
 
-Route::get('/profilemeasurement', 'HomeController@profileMeasurement');
+// Users Register Form Submit
+Route::post('/user-register','UsersController@register');
+
+// Confirm Account
+Route::get('confirm/{code}','UsersController@confirmAccount');
+
+// Users Login Form Submit
+Route::post('user-login','UsersController@login');
+
+// Users logout
+Route::get('/user-logout','UsersController@logout');
+
+
+
+
+Route::get('/wishlist', 'HomeController@wishlist');
+
+Route::get('/address', 'HomeController@address');
+
+Route::get('/invite-your-friends', 'HomeController@invitefriends');
+
+Route::get('/pending-carts', 'HomeController@pendingcarts');
+
+Route::get('/cart-records', 'HomeController@userCart');
+
+Route::get('/order-records', 'HomeController@userorder');
+
+Route::get('/profiles', 'HomeController@profileInfo');
+
+Route::get('/profile-measurements', 'HomeController@profileMeasurement');
 
 Route::get('/showmeasurement/{id}', 'HomeController@showMeasurement');
 
 
-Route::get('/measurement', function () {
+// Route::get('/measurements', function () {
 
-    // $products = Product::all();
-    return view('front.measurement');
-})->middleware('verified');
+//     // $products = Product::all();
+//     return view('front.measurement');
+// })->middleware('verified');
 
 Route::get('/startwizard', function () {
 

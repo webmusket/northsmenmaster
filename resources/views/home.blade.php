@@ -1,70 +1,56 @@
 
 @extends('layouts.master')
 @section('content')
-<div id="app" class="sectionpd">
+<div class="sectionpd">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <div class="rightcontainer">
+                @include('profile.sidebar')
+            </div>
+            <div class="col-lg-8">
+                <div class="alert alert-danger" role="alert">
+                    A simple danger alert—check it out!
+                </div>
 
-@forelse(auth()->user()->getReferrals() as $referral)
-    <h4>
-        {{ $referral->program->name }}
-    </h4>
-    <code>
-        {{ $referral->link }}
-    </code>
-    <p>
-        Number of referred users: {{ $referral->relationships()->count() }}
-    </p>
-@empty
-    No referrals
-@endforelse
+                <div class="deshheding">
 
+                    <h1>Profile Information</h1>
+                </div>
 
-
-@if(isset($service))
-@if($service == 'facebook')
-<div class="title m-b-md">
-    Welcome {{ $details->user['name']}} ! <br> Your email is : {{
-    $details->user['email'] }} <br> You are {{ $details->user['gender'] }}.
-</div>
-@endif
-@endif
-
-
-                    <div class="alert alert-secondary">
-                        <ul>
-                            <li>
-                                <span>Md Arafat Rahman</span>
-                            </li>
-                            <li>
-                                <strong>Email:</strong> arafatraj@gmail.com
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="list-group">
-                        <router-link to="/" class="list-group-item list-group-item-action active">Pending Carts</router-link>
-                        <router-link to="/" class="list-group-item list-group-item-action">Order records</router-link>
-                        <router-link to="/measurement" class="list-group-item list-group-item-action">Customer Data</router-link>
-                        <router-link to="/profile" class="list-group-item list-group-item-action">Profiles</router-link>
-                        <a href="#" class="list-group-item list-group-item-action">Address</a>
-                        <a href="#" class="list-group-item list-group-item-action">INVITE YOUR FRIENDS</a>
-                    </div>
-
+                <div class="profile-info">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <small id="passwordHelp" class="form-text text-muted"><a href="#">Change Password</a></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                            <small id="emailHelp" class="form-text text-muted">Enter your Full Name</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">Enter your Full Address</small>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">receive newsletter</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
 
 
                 </div>
+
             </div>
-            
-
-            <profile></profile>
-
-
         </div>
     </div>
 </div>
-
-<script src="{{ asset('js/app.js') }} "></script>
 @endsection

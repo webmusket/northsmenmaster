@@ -136,13 +136,35 @@ class HomeController extends Controller
         $measurement = Measurement::select('id','own', 'measurement_name','height', 'weight')
                         ->where('user_id',Auth::user()->id)
                         ->get();
-        return $measurement;
+        return view('profile.measurement')->with('measurement');
     }
 
     public function showMeasurement($id){
         $measurement = Measurement::where('id',$id)->first();
         return $measurement;
     }
+
+    public function wishlist(){
+        return view('profile.wishlist');
+    }
+
+    public function pendingcarts(){
+        return view('profile.pendingcarts');
+    }
+
+    public function invitefriends(){
+        return view('profile.invitefriends');
+    }
+
+    public function address(){
+        return view('profile.address');
+    }
+
+    public function userorder(){
+        return view('profile.orderrecords');
+    }
+
+    
 
     
     
