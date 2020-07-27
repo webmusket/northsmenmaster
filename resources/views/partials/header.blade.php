@@ -123,15 +123,7 @@
                                 <li><a href="#">Fabric Samples</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">{{ Config::get('app.locale') }}</a>
-
-                            <ul>
-                                @php $locale = session()->get('locale'); @endphp
-                                <li><a href="/lang/en">English</a></li>
-                                <li><a href="/lang/fr">French</a></li>
-                                <li><a href="/lang/es">Spanish</a></li>
-                                <li><a href="/lang/jp">Japanese</a></li>
-                            </ul>
+                        <li> <div id="google_translate_element"></div>
 
                             <!-- Right Side Of Navbar -->
 <!--                     <ul class="navbar-nav ml-auto">
@@ -205,7 +197,7 @@
     <div class="headermenu">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-10 text-center">
+                <div class="col-lg-9 text-center">
                     <div class="mainmneu">
                         <ul id="main_menu">
                             {!! menu_builder('main-menu') !!}
@@ -297,56 +289,23 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 text-right">
+                <div class="col-lg-3 text-right">
 
                     
                     <ul class="cartmenu">
 
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                            <li><a href="{{ url('/login-register') }}"><i class="fa fa-lock"></i> Login</a></li>
+
                         @else
 
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                        <li><a href="{{ url('/home') }}">
+                            @if(auth()->user()->avatar)
+                                <img src="{{ auth()->user()->avatar }}" alt="avatar" width="32" height="32" style="margin-right: 8px;">
+                            @endif
+                            <i class="fa fa-user"></i>  {{ auth()->user()->name }}</a></li>
+                            <li><a href="{{ url('/user-logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                   
-
-
-                                    
-
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                    
-                                    <a class="dropdown-item" href="/home">
-                                        <p >Profile</p> 
-                                    </a>  
-                                </div>
-
-
-
-
-                                
-
-
-                            </li>
                         @endguest
                         <li> <a href="/gotocart"><!-- <i class="fa fa-shopping-bag"> -->
 <?php 

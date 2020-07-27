@@ -41,7 +41,7 @@
                 	
                     {!! $tool->renderNavigation() !!}
                 @endforeach
-
+@if(\Auth::user()->level == 1)
 <router-link tag="h3" 
 :to="{
     name: 'index',
@@ -175,7 +175,7 @@
 
 
 
-
+@endif
 
 
 
@@ -251,22 +251,22 @@ Pusher.logToConsole = true;
         Nova.liftOff()
 
 
-        // window.Echo.channel('App.User.' + window.Laravel.user)
-        //     .listen('TestNotification', (e) => {
-        //         alert('Pusher is working')
-        //     });
+        window.Echo.channel('App.Admin.' + window.Laravel.user)
+            .listen('TestNotification', (e) => {
+                alert('Pusher is working')
+            });
 
 
-        // var pusher = new Pusher('1c2d4a45a9d998d5a4f8', {
-        //     cluster: 'ap2',
-        //     encrypted: true
-        // });
+        var pusher = new Pusher('1c2d4a45a9d998d5a4f8', {
+            cluster: 'ap2',
+            encrypted: true
+        });
 
-        // var channel = pusher.subscribe('App.User.' + window.Laravel.user);
-        // channel.bind('pusher:subscribe', function(data) {
-        //   alert(data);
-        //     console.log(data);
-        // });
+        var channel = pusher.subscribe('App.Admin.' + window.Laravel.user);
+        channel.bind('pusher:subscribe', function(data) {
+          alert(data);
+            console.log(data);
+        });
 
     </script>
 </body>

@@ -17,7 +17,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','refferal_url',
+        'name', 'email', 'password','referrer_id','balance',
+        'user_referer_code', 'facebook_id'
     ];
 
     /**
@@ -37,6 +38,36 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    protected $appends = ['referral_link'];
+
+    public function addNew($input)
+    {
+        $check = static::where('facebook_id',$input['facebook_id'])->first();
+
+
+        if(is_null($check)){
+            return static::create($input);
+        }
+
+
+        return $check;
+    }
+
+    public function getReferralLinkAttribute()
+    {
+        return $this->referral_link = url('login-register?ref='.$this->user_referer_code);
+    }
+    
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referrer_id', 'id');
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referrer_id', 'id');
+    }
 
     public function receivesBroadcastNotificationsOn()
     {

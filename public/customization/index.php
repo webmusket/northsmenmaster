@@ -25,157 +25,8 @@
 </head>
 
 <body onload="check()">
-    
-    <!--<div class="headertomenu">-->
-    <!--    <div style="    background: white;" class="container-fluid">-->
-    <!--        <div class="row">-->
-                <!--<div class="col-sm-12 col-lg-9 text-center">-->
-                    <!--<div class="headerlogo"> <a href="index.php"> <img src="./assets/img/Northsmen-Logo-Final.jpg" alt="blue knot"></a></div>-->
-                <!--</div>-->
-    <!--            <div class="col-sm-12 col-lg-9 text-center">-->
-    <!--                <div class="headerlogo"> <a href="/"> <img src="https://northsmen.com/assets/img/Northsmen-Logo-Final.jpg" alt="blue knot"></a></div>-->
-    <!--            </div>-->
-    <!--            <div class="col-lg-3">-->
-    <!--                <ul>-->
-    <!--                    <li><a href="#">Personal Stylist</a></li>-->
-    <!--                    <li><a href="#">Help</a>-->
-    <!--                        <ul>-->
-    <!--                            <li><a href="contact.php">Contact</a></li>-->
-    <!--                            <li><a href="contact.php">How it Works</a></li>-->
-    <!--                            <li><a href="contact.php">Chat</a></li>-->
-    <!--                            <li><a href="contact.php">Personal Stylist</a></li>-->
-    <!--                            <li><a href="#">Shipping/ Delivery</a></li>-->
-    <!--                            <li><a href="#">Altertions/ Returns</a></li>-->
-    <!--                            <li><a href="#">Gift Card</a></li>-->
-    <!--                            <li><a href="#">Track Order</a></li>-->
-    <!--                            <li><a href="#">Payment Inquiry</a></li>-->
-    <!--                            <li><a href="#">Tailor's Kit</a></li>-->
-    <!--                            <li><a href="#">Fabric Samples</a></li>-->
-    <!--                        </ul>-->
-    <!--                    </li>-->
-    <!--                    <li><a href="#">ENG</a>-->
-
-    <!--                        <ul>-->
-    <!--                            <li><a href="#">En</a></li>-->
-    <!--                            <li><a href="#">SP</a></li>-->
-    <!--                            <li><a href="#">DCH</a></li>-->
-    <!--                            <li><a href="#">IT</a></li>-->
-    <!--                        </ul>-->
-
-    <!--                    </li>-->
-    <!--                    <li><a href="#">USD</a>-->
-
-    <!--                        <ul>-->
-    <!--                            <li><a href="#">$USD</a></li>-->
-    <!--                            <li><a href="#">$AUD</a></li>-->
-    <!--                            <li><a href="#">$Can</a></li>-->
-    <!--                            <li><a href="#">€Euro</a></li>-->
-    <!--                            <li><a href="#">£Pound</a></li>-->
-    <!--                        </ul>-->
-    <!--                    </li>-->
-
-    <!--                </ul>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-    <!-- End Header top menu-->
-
-    <!--start Header main menu -->
-    <!--<div class="headermenu">-->
-    <!--    <div class="container-fluid">-->
-    <!--        <div class="row">-->
-    <!--            <div class="col-lg-10 text-center">-->
-    <!--                <div class="mainmneu">-->
-    <!--                    <ul id="main_menu">-->
-    <!--                        <li><a href="#">Organic</a>-->
-    <!--                            <ul>-->
-    <!--                                <li><a href="organic-products.php">Organic Suits</a></li>-->
-    <!--                                <li><a href="organic-products.php">Organic Shirts</a></li>-->
-    <!--                                <li><a href="organic-products.php">Organic Pants</a></li>-->
-    <!--                            </ul>-->
-    <!--                        </li>-->
-    <!--                        <li><a href="#">Suits</a>-->
-    <!--                            <ul>-->
-    <!--                                <li><a href="all-products.php">Premium Suits</a></li>-->
-
-    <!--                            </ul>-->
-    <!--                        </li>-->
-    <!--                        <li><a href="#">Shirts</a>-->
-    <!--                            <ul>-->
-                                    <!--<li><a href="all-products.php">Premium Shirts</a></li>-->
-                                    <!--<li><a href="all-products.php">Business Shirts</a></li>-->
-                                    <!--<li><a href="all-products.php">Casual Shirts</a></li>-->
-                                    <!--<li><a href="all-products.php">Seasonal Shirts</a></li>-->
-    <!--                            </ul>-->
-    <!--                        </li>-->
 
 
-    <!--                        <li><a href="#">Blazers</a>-->
-    <!--                            <ul>-->
-                                    <!--<li><a href="all-products.php">Premium Blazer</a></li>-->
-                                    <!--<li><a href="all-products.php">Business Blazer</a></li>-->
-                                    <!--<li><a href="all-products.php">Casual Blazer</a></li>-->
-                                    <!--<li><a href="all-products.php">Party Blazer</a></li>-->
-                                    <!--<li><a href="all-products.php">Seasonal Blazer</a></li>-->
-    <!--                            </ul>-->
-    <!--                        </li>-->
-
-    <!--                        <li><a href="#">Pants</a>-->
-    <!--                            <ul>-->
-                                    <!--<li><a href="all-products.php">Premium Pants</a></li>-->
-                                    <!--<li><a href="all-products.php">Business Pants</a></li>-->
-                                    <!--<li><a href="all-products.php">Casual Pants</a></li>-->
-                                    <!--<li><a href="all-products.php">Chino Pants</a></li>-->
-                                    <!--<li><a href="all-products.php">Seasonal</a></li>-->
-    <!--                            </ul>-->
-    <!--                        </li>-->
-
-    <!--                        <li><a href="#">Chinos</a>-->
-    <!--                            <ul>-->
-                                    <!--<li><a href="all-products.php">Chino Suits</a></li>-->
-                                    <!--<li><a href="all-products.php">Chino Pants</a></li>-->
-                                    <!--<li><a href="all-products.php">Chino Vest</a></li>-->
-
-    <!--                            </ul>-->
-    <!--                        </li>-->
-    <!--                        <li><a href="#">Kids Suits</a>-->
-    <!--                            <ul>-->
-                                    <!--<li><a href="all-products.php">Kids Suits</a></li>-->
-                                    <!--<li><a href="all-products.php">Kids Shirts</a></li>-->
-                                    <!--<li><a href="all-products.php">Kids Pants</a></li>-->
-                                    <!--<li><a href="all-products.php">Kids Vests</a></li>-->
-                                    <!--<li><a href="all-products.php">Kids 3 Piece Suits</a></li>-->
-    <!--                            </ul>-->
-    <!--                        </li>-->
-    <!--                        <li><a href="#">Collections</a>-->
-    <!--                            <ul>-->
-                                    <!--<li><a href="tuxedo.php">Dinner Tuxedos</a></li>-->
-                                    <!--<li><a href="all-products.php">Seasonal Shirts</a></li>-->
-                                    <!--<li><a href="all-products.php">Other type</a></li>-->
-    <!--                            </ul>-->
-    <!--                        </li>-->
-    <!--                        <li><a href="#">Accessories</a>-->
-    <!--                            <ul>-->
-    <!--                                <li><a href="all-products.php">All</a></li>-->
-    <!--                                <li><a href="all-products.php">Ties</a></li>-->
-    <!--                            </ul>-->
-    <!--                        </li>-->
-    <!--                        <li><a href="#">Weddings</a></li>-->
-    <!--                    </ul>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <div class="col-lg-2 text-right">-->
-    <!--                <ul class="cartmenu">-->
-    <!--                    <li> <a href="admin/index.html">Signup/Login</a></li>-->
-    <!--                    <li> <a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>-->
-    <!--                </ul>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-    
-    
 
 <div class="customization-section">
     <div class="progressbar-reports">
@@ -303,7 +154,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button @click="savecustomization()" type="button" class="btn btn-primary">Proceed to Checkout</button>
+                            <button @click="savecustomization()" type="button" class="btn btn-primary">Add to Cart</button>
                           </div>
                         </div>
                       </div>
@@ -837,7 +688,7 @@
 
 </div>
 
-</div>
+
 
 <!--start Footer area -->
     <div class="footer-area">

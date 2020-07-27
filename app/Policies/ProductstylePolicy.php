@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Admin;
 use App\Productstyle;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -17,16 +17,12 @@ class ProductstylePolicy
      * @param  \App\Productstyle  $productstyle
      * @return mixed
      */
-    public function viewAny(User $user){
-        if ( $user->hasRole('cumtomizer') ) {
-            return true;
-        }
+    public function viewAny(Admin $user){
+        return false;
     }
-    public function view(User $user, Productstyle $productstyle)
+    public function view(Admin $user, Productstyle $productstyle)
     {
-        if ($user->can('view product style')) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -35,11 +31,9 @@ class ProductstylePolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Admin $user)
     {
-        if ( $user->can('view product style') ) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -49,11 +43,9 @@ class ProductstylePolicy
      * @param  \App\Productstyle  $productstyle
      * @return mixed
      */
-    public function update(User $user, Productstyle $productstyle)
+    public function update(Admin $user, Productstyle $productstyle)
     {
-        if ( $user->can('update product style') ) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -63,34 +55,10 @@ class ProductstylePolicy
      * @param  \App\Productstyle  $productstyle
      * @return mixed
      */
-    public function delete(User $user, Productstyle $productstyle)
+    public function delete(Admin $user, Productstyle $productstyle)
     {
-        if ( $user->can('delete product style') ) {
-            return true;
-        }
+       //
     }
 
-    /**
-     * Determine whether the user can restore the productstyle.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Productstyle  $productstyle
-     * @return mixed
-     */
-    public function restore(User $user, Productstyle $productstyle)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the productstyle.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Productstyle  $productstyle
-     * @return mixed
-     */
-    public function forceDelete(User $user, Productstyle $productstyle)
-    {
-        //
-    }
+   
 }

@@ -14,6 +14,7 @@
         "asad/menu-builder": "*",
         "asad/order-action": "*",
         "asad/product-style": "*",
+        "asad/productsettings": "*",
         "asad/report": "*",
         "asad/settings": "*",
         "asad/site-settings": "*",
@@ -22,30 +23,34 @@
         "blueknot/super-category": "*",
         "brick/math": "^0.8.9",
         "chumper/zipper": "^1.0",
+        "classic-o/nova-media-library": "^1.0",
         "coreproc/nova-echo": "^0.2.0",
-        "coreproc/nova-notification-feed": "1.3.0",
+        "coreproc/nova-notification-feed": "^1.4",
         "dillingham/nova-button": "^1.0",
+        "doctrine/dbal": "^2.10",
+        "eminiarts/nova-permissions": "^1.0",
         "fideloper/proxy": "^4.0",
         "fourstacks/nova-repeatable-fields": "^1.2",
-        "infinety-es/nova-filemanager": "^2.6",
+        "infinety-es/nova-filemanager": "^2.7",
         "infinety-es/nova-menu-builder": "^1.0.0",
         "intervention/image": "^2.5",
         "jorenvanhocht/laravel-share": "^3.2",
         "laravel/framework": "5.8.*",
         "laravel/nova": "~2.0",
-        "laravel/socialite": "^4.3",
+        "laravel/socialite": "^4.4",
         "laravel/tinker": "^1.0",
         "palauaandsons/nova-tags-field": "^3.0",
-        "pusher/pusher-php-server": "^3.2",
+        "pusher/pusher-php-server": "^4.1.1",
         "ramsey/uuid": "^3.9",
         "shippo/shippo-php": "^1.4",
         "spatie/laravel-medialibrary": "^7.0.0",
         "spatie/laravel-newsletter": "^4.7",
         "spatie/laravel-permission": "^2.37",
+        "stripe/stripe-php": "^7.28",
         "torann/currency": "^1.0",
-        "vyuldashev/nova-permission": "^1.6",
         "waynestate/nova-ckeditor4-field": "^0.4.0",
-        "zanysoft/laravel-zip": "^1.0"
+        "zanysoft/laravel-zip": "^1.0",
+        "acme/coupon-discount": "*"
     },
     "repositories": [
         {
@@ -83,6 +88,14 @@
         {
             "type": "path",
             "url": "./nova-components/SiteSettings"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Productsettings"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/CouponDiscount"
         }
     ],
     "require-dev": {

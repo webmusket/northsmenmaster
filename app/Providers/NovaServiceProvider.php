@@ -81,13 +81,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [
+            new \Infinety\Filemanager\FilemanagerTool(),
+            new \ClassicO\NovaMediaLibrary\NovaMediaLibrary(),
             new Invoicer,
             new Settings,
             new ProductStyle,
-            new Report,
+            // new Report,
             new SiteSettings,
-            \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
-            new \Infinety\Filemanager\FilemanagerTool(),
+            // \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
+            new \Eminiarts\NovaPermissions\NovaPermissions(),
             new \Infinety\MenuBuilder\MenuBuilder(),
             // new \Coderello\LaravelNovaLang\LaravelNovaLangTool(),
         ];

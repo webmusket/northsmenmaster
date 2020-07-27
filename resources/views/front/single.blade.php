@@ -123,6 +123,13 @@ echo "<span class='orginal-price'><span>$</span>$price</span>";
                 Add to cart
             </button>
         @endif  
+        <form class="form" method="POST" action="{{url('/add-wishlist') }}">{{ csrf_field() }}
+            <input type="hidden" name="product_id" value="{{ $products->id }}">
+            <button type="submit" class="btn btn-secondary cart" id="cartButton">
+                <i class="fa fa-shopping-cart"></i>
+                Add to Wishlist
+            </button>
+        </form>
     </div><!--/product-information-->
 </form>
                 <!--<a  href="{{ url('/order/'.$products->id) }}" class="btn-submit">Order Now</a>-->

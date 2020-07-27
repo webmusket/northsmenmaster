@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800");
+
+.badge-warning {
+    color: #212529;
+    background-color: #ffed4a;
+    margin-left: -7px;
+    /* margin-top: 11px; */
+    /* margin-bottom: 2px; */
+    position: absolute;
+}
 /* Base CSS */
 .alignleft {
   float: left;
@@ -1614,7 +1623,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 
 .login-form form button, .signup-form form button {
-  background: #FE980F;
+  background: #AB8D48;
   border: medium none;
   border-radius: 0;
   color: #FFFFFF;
@@ -1639,7 +1648,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 
 .or{
-  background: #FE980F;
+  background: #AB8D48;
   border-radius: 40px;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;

@@ -29,7 +29,11 @@
         "build-activity-log": "cd nova-components/ActivityLog && npm run dev",
         "build-activity-log-prod": "cd nova-components/ActivityLog && npm run prod",
         "build-site-settings": "cd nova-components/SiteSettings && npm run dev",
-        "build-site-settings-prod": "cd nova-components/SiteSettings && npm run prod"
+        "build-site-settings-prod": "cd nova-components/SiteSettings && npm run prod",
+        "build-productsettings": "cd nova-components/Productsettings && npm run dev",
+        "build-productsettings-prod": "cd nova-components/Productsettings && npm run prod",
+        "build-coupon-discount": "cd nova-components/CouponDiscount && npm run dev",
+        "build-coupon-discount-prod": "cd nova-components/CouponDiscount && npm run prod"
     },
     "devDependencies": {
         "bootstrap": "^4.4.1",

@@ -42,13 +42,13 @@ class Readymadeproduct extends Model implements TaggableInterface
     //     return currency($val, 'USD',  $locale);
     // }
 
-    public function getSalePriceAttribute($val)
-    {
+    // public function getSalePriceAttribute($val)
+    // {
 
-        $locale = currency()->getUserCurrency();
+    //     $locale = currency()->getUserCurrency();
 
-        return currency($val, 'USD',  $locale);
-    }
+    //     return currency($val, 'USD',  $locale);
+    // }
 
     // public function getPurchasePriceAttribute($val)
     // {

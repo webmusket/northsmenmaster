@@ -27,9 +27,9 @@
                             <tr v-for="product in cartdata">
                                 <th>
                                     <div class="cart-product">
-                                        <span><i class="fa fa-times"></i></span>
+                                       
                                         <a href="#">{{product.product_name}}</a>
-                                        <img :href="'/storage/'+product.image" alt="cart item">
+                                        <img :href="'storage/'+product.image" alt="cart item">
                                     </div>
                                 </th>
                                 <td>

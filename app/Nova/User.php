@@ -69,8 +69,8 @@ class User extends Resource
                     'level_2' => 'Level 2',
                     'level_3' => 'Level 3',
                 ]),
-            MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
-            MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
+            // MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
+            // MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
         ];
     }
 

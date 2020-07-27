@@ -7,7 +7,7 @@ use Laravel\Nova\Fields\Text;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\BelongsToMany;
-use Infinety\Filemanager\FilemanagerField;
+// use Infinety\Filemanager\FilemanagerField;
 
 class Maincategory extends Resource
 {
@@ -60,9 +60,9 @@ class Maincategory extends Resource
             ->rules('required'),
 
 
-            FilemanagerField::make('Image')
-            ->displayAsImage()
-            ->folder('maincategory'),
+            // FilemanagerField::make('Image')
+            // ->displayAsImage()
+            // ->folder('maincategory'),
 
             BelongsToMany::make('Categories'),
 

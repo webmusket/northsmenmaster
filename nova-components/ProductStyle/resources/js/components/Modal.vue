@@ -12,7 +12,7 @@
                                   </label>
                               </div>
                               <div class="py-4 w-4/5">
-                                  <input v-model='stylebyid.name'   type="text" placeholder="Name" class="w-full form-control form-input form-input-bordered">
+                                  <input v-model='stylebyid.variantType'   type="text" placeholder="Name" class="w-full form-control form-input form-input-bordered">
                               </div>
                           </div>
                           <div class="flex border-b border-40">
@@ -40,7 +40,7 @@
                                 </span>
                               </div>
                               <div class="w-1/4 px-8 py-6">
-                                  <img :src="path + stylebyid.image" class="align-bottom w-8 h-8 rounded-full" style="object-fit: cover;">
+                                  <img :src="path + stylebyid.variantImage2" class="align-bottom w-8 h-8 rounded-full" style="object-fit: cover;">
                               </div>
 
                               <div class="w-1/4 px-8 py-6">

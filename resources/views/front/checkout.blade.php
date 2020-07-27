@@ -5,12 +5,7 @@
 
 <section id="form" style="margin-top:20px;"><!--form-->
     <div class="container">
-        <div class="breadcrumbs">
-            <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
-              <li class="active">Check Out</li>
-            </ol>
-        </div>
+
         @if(Session::has('flash_message_error'))
             <div class="alert alert-error alert-block" style="background-color:#f4d2d2">
                 <button type="button" class="close" data-dismiss="alert">×</button> 
@@ -86,7 +81,7 @@
                             <div class="form-group">
                                 <input name="shipping_mobile" id="shipping_mobile" @if(!empty($shippingDetails->mobile)) value="{{ $shippingDetails->mobile }}" @endif type="text" placeholder="Shipping Mobile" class="form-control" />
                             </div>
-                            <button type="submit" class="btn btn-default">Check Out</button>
+                            <button type="submit" class="btn btn-success">Check Out</button>
                     </div><!--/sign up form-->
                 </div>
             </div>

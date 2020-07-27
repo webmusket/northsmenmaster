@@ -19,71 +19,97 @@ class ProductsController extends Controller
     public $url = '';
 
     public function getproducts($url = null){
-        $this->url = $url;
-        $category = Category::where('slug', $url)->first();
+        try {
+            $this->url = $url;
+            $category = Category::where('slug', $url)->first();
 
-        
-        
-        $categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
-        return view('front.products')->with(compact('url','category','categories'));
+            
+            
+            $categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
+            return view('front.products')->with(compact('url','category','categories'));
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
     }
     public function viewVirtualProbycat($url = null){
+        try {
+
+            $category = Category::where('slug', $url)->first();
 
 
-        $category = Category::where('slug', $url)->first();
+       
+            //$categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
 
+            $data = Virtualproduct::orderBy('id', 'DESC')->whereJsonContains('category', $category->id)->where('draft',0)->paginate(4);
 
-   
-        //$categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
+            return response()->json($data);
 
-        $data = Virtualproduct::orderBy('id', 'DESC')->whereJsonContains('category', $category->id)->where('draft',0)->paginate(4);
-
-        return response()->json($data);
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
              
     }
 
     public function viewReadymadeProbycat($url = null){
+        try {
 
-        $category = Category::where('slug', $url)->first();
+            $category = Category::where('slug', $url)->first();
 
-      
-        //$categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
+          
+            //$categories = Category::where('parent',$category->parent)->where('slug' , '!=' , $url)->get();
 
-        $data = Readymadeproduct::orderBy('id', 'DESC')->where('draft',0)->whereJsonContains('category', $category->id)->paginate(4);
+            $data = Readymadeproduct::orderBy('id', 'DESC')->where('draft',0)->whereJsonContains('category', $category->id)->paginate(4);
 
-        return response()->json($data);
+            return response()->json($data);
+
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
              
     }
 
     public function viewProduct($url = null,$slug = null,$pro = null){
-        $products = '';
-        $products = Readymadeproduct::where('slug',$pro)->first();
-        if (empty($products)) {
-            $products = Virtualproduct::where('slug',$pro)->first();
+        try {
+            $products = '';
+            $products = Readymadeproduct::where('slug',$pro)->first();
+            if (empty($products)) {
+                $products = Virtualproduct::where('slug',$pro)->first();
+            }
+            return view('front.product')->with(compact('products','url'));
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
         }
-        return view('front.product')->with(compact('products','url'));
     }
 
 
     public function viewSingleProduct($url = null, $slug = null,$pro = null){
+        try {
         
-        $category = Category::where('slug', $slug)->first();
+            $category = Category::where('slug', $slug)->first();
 
-        $name = $category->name;
+            $name = $category->name;
 
-        $maincategory_name = $url;
+            $maincategory_name = $url;
 
-        $category_name = $slug;
+            $category_name = $slug;
 
-        $product_name = $pro;
+            $product_name = $pro;
 
-        $id = $category->id;
+            $id = $category->id;
 
-        $products = Product::where('slug', $pro)->first();
+            $products = Product::where('slug', $pro)->first();
 
-        
-        
-        return view('front.single')->with(compact('maincategory_name','category_name','product_name','products'));
+            
+            
+            return view('front.single')->with(compact('maincategory_name','category_name','product_name','products'));
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
     }
 
     // public function viewProductsbycat(Request $request, $url=null, $slug = null){

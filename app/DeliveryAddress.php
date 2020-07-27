@@ -7,6 +7,7 @@ use Shippo;
 
 class DeliveryAddress extends Model
 {
+	protected $fillable = array('name', 'email', 'address','mobile','city','state','country','pincode');
     public function __construct()
     {
         // Grab this private key from

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Admin;
 use App\Styleoption;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -17,17 +17,13 @@ class StyleoptionPolicy
      * @param  \App\Styleoption  $styleoption
      * @return mixed
      */
-    public function viewAny(User $user){
-        if ( $user->hasRole('cumtomizer') ) {
-            return true;
-        }
+    public function viewAny(Admin $user){
+        return false;
     }
 
-    public function view(User $user, Styleoption $styleoption)
+    public function view(Admin $user, Styleoption $styleoption)
     {
-        if ($user->can('view style option')) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -36,11 +32,9 @@ class StyleoptionPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Admin $user)
     {
-        if ( $user->can('create style option') ) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -50,11 +44,9 @@ class StyleoptionPolicy
      * @param  \App\Styleoption  $styleoption
      * @return mixed
      */
-    public function update(User $user, Styleoption $styleoption)
+    public function update(Admin $user, Styleoption $styleoption)
     {
-        if ( $user->can('update style option') ) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -64,34 +56,10 @@ class StyleoptionPolicy
      * @param  \App\Styleoption  $styleoption
      * @return mixed
      */
-    public function delete(User $user, Styleoption $styleoption)
-    {
-        if ( $user->can('delete style option') ) {
-            return true;
-        }
-    }
-
-    /**
-     * Determine whether the user can restore the styleoption.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Styleoption  $styleoption
-     * @return mixed
-     */
-    public function restore(User $user, Styleoption $styleoption)
+    public function delete(Admin $user, Styleoption $styleoption)
     {
         //
     }
 
-    /**
-     * Determine whether the user can permanently delete the styleoption.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Styleoption  $styleoption
-     * @return mixed
-     */
-    public function forceDelete(User $user, Styleoption $styleoption)
-    {
-        //
-    }
+
 }

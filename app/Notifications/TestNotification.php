@@ -4,9 +4,8 @@ namespace App\Notifications;
 
 use Coreproc\NovaNotificationFeed\Notifications\NovaBroadcastMessage;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 
 class TestNotification extends Notification
 {
@@ -18,7 +17,8 @@ class TestNotification extends Notification
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param $level
+     * @param $message
      */
     public function __construct($level, $message = 'Test message')
     {
@@ -29,7 +29,7 @@ class TestNotification extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -41,23 +41,9 @@ class TestNotification extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    // public function toMail($notifiable)
-    // {
-    //     return (new MailMessage)
-    //                 ->line('The introduction to the notification.')
-    //                 ->action('Notification Action', url('/'))
-    //                 ->line('Thank you for using our application!');
-    // }
-
-    /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)
@@ -65,16 +51,19 @@ class TestNotification extends Notification
         return [
             'level' => $this->level,
             'message' => $this->message,
-            'url' => 'https://coreproc.com',
+            'url' => 'https://northsmen.com/',
             'target' => '_self'
         ];
     }
 
-
+    /**
+     * Get the broadcastable representation of the notification.
+     *
+     * @param  mixed $notifiable
+     * @return BroadcastMessage
+     */
     public function toBroadcast($notifiable)
     {
         return new NovaBroadcastMessage($this->toArray($notifiable));
     }
 }
-
-

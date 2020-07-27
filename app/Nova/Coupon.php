@@ -5,9 +5,10 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Trix;
+use Acme\CouponDiscount\CouponDiscount;
 use Laravel\Nova\Fields\BelongsToMany;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -49,21 +50,12 @@ class Coupon extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('coupon code','coupon_code'),
-            Number::make('amount'),
-            Number::make('maximum uses','max_uses'),
-            Number::make('maximum uses user','max_uses_user'),
-
-            
-
-            Select::make('Coupon Amount Type','amount_type')->options([
-                'Percentage' => 'Percentage',
-                'Fixed' => 'Fixed',
-            ]),
+            Text::make('Coupon Code','coupon_code'),
+            Trix::make('Description','description'),
             Date::make('End Date', 'expiry_time')->format('YYYY-MM-DD '),
             Boolean::make('Active','status'),
 
-            BelongsToMany::make('products'),
+            CouponDiscount::make(),
         ];
     }
 

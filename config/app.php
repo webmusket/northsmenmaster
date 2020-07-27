@@ -168,6 +168,7 @@ return [
          */
         ZanySoft\Zip\ZipServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -178,6 +179,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\NovaServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        
+
 
 
     ],
@@ -232,6 +235,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Zip' => ZanySoft\Zip\ZipFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

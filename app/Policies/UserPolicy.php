@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy
@@ -16,15 +16,13 @@ class UserPolicy
      * @param  \App\User  $model
      * @return mixed
      */
-    public function viewAny(User $user){
-        if ( $user->hasRole('Admin') ) {
-            return true;
-        }
+    public function viewAny(Admin $user){
+        return false;
     }
 
-    public function view(User $user, User $model)
+    public function view(Admin $user, Admin $model)
     {
-        return true;
+        // 
     }
 
     /**
@@ -33,9 +31,9 @@ class UserPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Admin $user)
     {
-        return true;
+        // 
     }
 
     /**
@@ -45,9 +43,9 @@ class UserPolicy
      * @param  \App\User  $model
      * @return mixed
      */
-    public function update(User $user, User $model)
+    public function update(Admin $user, Admin $model)
     {
-        return true;
+        // return true;
     }
 
     /**
@@ -57,32 +55,10 @@ class UserPolicy
      * @param  \App\User  $model
      * @return mixed
      */
-    public function delete(User $user, User $model)
+    public function delete(Admin $user, Admin $model)
     {
-        return true;
+        // return true;
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\User  $model
-     * @return mixed
-     */
-    public function restore(User $user, User $model)
-    {
-        //
-    }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\User  $model
-     * @return mixed
-     */
-    public function forceDelete(User $user, User $model)
-    {
-        //
-    }
 }

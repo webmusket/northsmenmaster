@@ -42,11 +42,18 @@ Route::get('/', function () {
 
     // return $ipdata;
     // $products = Product::all();
-    // Auth::user()->notify(new TestNotification("hello" , 'ball'));
+    
     return view('front.index');
 });
 
+Route::get('auth/facebook', 'Auth\FacebookController@redirectToFacebook');
+Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
 
+Route::post('customizationsettings','CustomizationController@store');
+
+Route::get('getlinearts','CustomizationController@getlinearts');
+
+Route::get('getcustomizationdata','CustomizationController@index');
 
 Route::get('/customization', function () {
 
@@ -56,21 +63,21 @@ Route::get('/customization', function () {
 });
 
 
-Route::group([
-    'prefix' => '{locale}', 
-    'where' => ['locale' => '[a-zA-Z]{2}'],
-    'middleware' => 'locale'
-  ], function() {
+// Route::group([
+//     'prefix' => '{locale}', 
+//     'where' => ['locale' => '[a-zA-Z]{2}'],
+//     'middleware' => 'locale'
+//   ], function() {
 
-    Route::get('/', function () {
-        // return redirect(App::getLocale());
-        return view('front.index');
-    });
+//     Route::get('/', function () {
+//         // return redirect(App::getLocale());
+//         return view('front.index');
+//     });
 
-    Auth::routes();
+//     Auth::routes();
 
-    Route::get('/home', 'HomeController@index')->name('home');
-});
+//     Route::get('/home', 'HomeController@index')->name('home');
+// });
 
 
 
@@ -104,9 +111,20 @@ Route::get('/getdiscountedprice/{sale_price}', function ($sale_price) {
 
 Route::post('newsletter','NewsletterController@store');
 
-Route::get('/customization', function () {
+Route::get('/mail', function () {
+$data = array('name'=>"Virat Gandhi");
+   
+      Mail::send([], $data, function($message) {
+         $message->to('asad.dotphase@gmail.com', 'Tutorials Point')->subject
+            ('Laravel Basic Testing Mail');
+         $message->from('xyz@gmail.com','Virat Gandhi');
+      });
+      echo "Basic Email Sent. Check your inbox.";
+});
 
-    return view('front.cus');
+Route::get('/iframe', function () {
+
+    return view('test');
 });
 Route::get('/pdf', function () {
 
@@ -120,7 +138,35 @@ Route::get('/test', function () {
     return $data;
 });
 
+Route::get('/coupons', function () {
 
+    $couponDetails = App\Coupon::find(10);
+            $cat = $couponDetails->couponcategories;
+            $excat = $couponDetails->excludecouponcategories;
+
+
+            if (count($cat) != 0) {
+                $final_cat = array_diff($cat, $excat);
+            }else{
+                $total_id = App\Category::pluck('name');
+                $final_cat = array_diff($total_id, $excat);
+            }
+
+            $id = [];
+
+            foreach ($final_cat as $item) {
+                $cat_id = App\Category::where('name',$item)->first()->id;
+                $id[] =  $cat_id;
+            }
+            $total_pro = [];
+
+            $total_pro = App\Readymadeproduct::whereJsonContains('category', $id)->pluck('title');
+
+            return $total_pro;
+
+
+
+});
 Route::get('/cart-increment/{id}', function ($id) {
 
     $cart = App\Cart::find($id);
@@ -200,18 +246,6 @@ Route::get('/getorderstatus', function () {
 
 });
 
-Route::get('/data',function(){
-
-
-    //$data = Readymadeproduct::where('category',11)->get();
-   // $products = App\Readymadeproduct::orderBy('id', 'DESC')->whereJsonContains('category', 11)->paginate(5);
-
-    
-   //  echo "<pre>"; print_r($products); die;
-    
-    
-    
-});
 
 
 
@@ -305,58 +339,19 @@ Route::match(['get', 'post'],'/getreadymadefilterproduct/{url}/{filter}','Filter
 Route::match(['get', 'post'],'/getvirtualfilterproduct/{url}/{filter}','FilterproController@getvirtualfilterproduct');
 
 
-//shipping level
-Route::get('/getshippinglevel/{id}','ShippingController@getshippinglevel');
-// Cart Page
-Route::match(['get', 'post'],'/cart','CartController@cart');
-
-Route::get('/gotocart','CartController@gotocart');
-
-// Add to Cart Route
-Route::match(['get', 'post'], '/add-cart', 'CartController@addtocart');
-
-// Delete Product from Cart Route
-Route::get('/cart/delete-product/{id}','CartController@deleteCartProduct');
-
-// Update Product Quantity from Cart
-Route::get('/cart/update-quantity/{id}/{quantity}','CartController@updateCartQuantity');
-
-// Get Product Attribute Price
-Route::any('/get-product-price','CartController@getProductPrice');
-
-// Apply Coupon
-Route::post('/cart/apply-coupon','CartController@applyCoupon');
-
-Route::match(['get','post'],'checkout','CartController@checkout');
-// Order Review Page
-Route::match(['get','post'],'/order-review','CartController@orderReview');
-// Place Order
-Route::match(['get','post'],'/place-order','CartController@placeOrder');
-// Thanks Page
-Route::get('/thanks','CartController@thanks');
-// Paypal Page
-Route::get('/paypal','CartController@paypal');
-// Users Orders Page
-Route::get('/orders','CartController@userOrders');
-// User Ordered Products Page
-Route::get('/orders/{id}','CartController@userOrderDetails');
-// Paypal Thanks Page
-Route::get('/paypal/thanks','CartController@thanksPaypal');
-// Paypal Cancel Page
-Route::get('/paypal/cancel','CartController@cancelPaypal');
-
- Route::get('laravel-send-email', 'EmailController@sendEMail');
-
- //courior functionality
-Route::get('/courior','ShippingController@shipping');
 
 
 
 //social login
 
+Route::get('redirect/google', 'Auth\LoginController@redirectToProvider')
+    ->name('login.provider');
 
-Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
-Route::get('/callback/{provider}', 'SocialAuthController@callback');
+Route::get('google/callback', 'Auth\LoginController@handleProviderCallback')
+    ->name('login.callback');
+
+// Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
+// Route::get('/callback/{provider}', 'SocialAuthController@callback');
 
 Route::get('/referral', 'UserController@referral')->name('referral');
 Route::get('/referrer', 'HomeController@referrer');
@@ -369,18 +364,33 @@ Route::get('/referrals', 'HomeController@referrals');
  Route::get('mylocation', 'GeolocationController@index');
 
 
+    // Add to Cart Route
+    Route::match(['get', 'post'], '/add-cart', 'CartController@addtocart');
+
+    // Delete Product from Cart Route
+    Route::get('/cart/delete-product/{id}','CartController@deleteCartProduct');
+
+    // Update Product Quantity from Cart
+    Route::get('/cart/update-quantity/{id}/{quantity}','CartController@updateCartQuantity');
+
+    // Get Product Attribute Price
+    Route::any('/get-product-price','CartController@getProductPrice');
+
+        // Cart Page
+    Route::match(['get', 'post'],'/cart','CartController@cart');
+
+    Route::get('/gotocart','CartController@gotocart');
+
 
 // after
-Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')
-    ->name('home')
-    ->middleware('verified');
+
+
     
     
-Route::get('profile', function () {
-    // Only verified users may enter...
-})->middleware('verified');
+// Route::get('profile', function () {
+//     // Only verified users may enter...
+// })->middleware('verified');
 
 
 // Users Login/Register Page
@@ -403,23 +413,83 @@ Route::get('/user-logout','UsersController@logout');
 
 
 
-Route::get('/wishlist', 'HomeController@wishlist');
 
-Route::get('/address', 'HomeController@address');
+// All Routes after Login
+Route::group(['middleware'=>['frontlogin']],function(){
+    // Users Account Page
+    Route::match(['get','post'],'account','UsersController@account');
+    // Check User Current Password
+        //shipping level
+    Route::get('/getshippinglevel/{id}','ShippingController@getshippinglevel');
 
-Route::get('/invite-your-friends', 'HomeController@invitefriends');
 
-Route::get('/pending-carts', 'HomeController@pendingcarts');
+    Route::match(['get','post'],'add-address','UsersController@addaddress');
 
-Route::get('/cart-records', 'HomeController@userCart');
+    // Apply Coupon
+    Route::post('/cart/apply-coupon','CartController@applyCoupon');
 
-Route::get('/order-records', 'HomeController@userorder');
+    Route::match(['get','post'],'checkout','CartController@checkout');
+    // Order Review Page
+    Route::match(['get','post'],'/order-review','CartController@orderReview');
+    // Place Order
+    Route::match(['get','post'],'/place-order','CartController@placeOrder');
+    // Thanks Page
+    Route::get('/thanks','CartController@thanks');
+    // Paypal Page
+    Route::get('/paypal','CartController@paypal');
+    // Stripe Page
+    Route::get('/stripe','CartController@stripe');
 
-Route::get('/profiles', 'HomeController@profileInfo');
+    Route::post('/stripe/save', 'StripePaymentController@stripePost');
 
-Route::get('/profile-measurements', 'HomeController@profileMeasurement');
+    
+    // Users Orders Page
+    Route::get('/orders','CartController@userOrders');
+    // User Ordered Products Page
+    Route::get('/orders/{id}','CartController@userOrderDetails');
+    // Paypal Thanks Page
+    Route::get('/paypal/thanks','CartController@thanksPaypal');
+    // Paypal Cancel Page
+    Route::get('/paypal/cancel','CartController@cancelPaypal');
 
-Route::get('/showmeasurement/{id}', 'HomeController@showMeasurement');
+     Route::get('laravel-send-email', 'EmailController@sendEMail');
+
+     //courior functionality
+    Route::get('/courior','ShippingController@shipping');
+
+
+    Route::get('/wishlist', 'UsersController@wishlist');
+    Route::get('/order-details/{id}', 'CartController@userOrderDetails');
+    Route::post('/add-wishlist', 'UsersController@addtowishlist');
+    
+
+    Route::get('/address', 'UsersController@address');
+
+    Route::get('/invite-your-friends', 'UsersController@invitefriends');
+
+    Route::get('/pending-carts', 'UsersController@pendingcarts');
+
+    Route::get('/cart-records', 'UsersController@userCart');
+
+    Route::get('/order-records', 'UsersController@userorder');
+
+    Route::get('/profile-info', 'UsersController@profileInfo');
+
+    Route::get('/profile-measurements', 'UsersController@profileMeasurement');
+
+    Route::get('/showmeasurement/{id}', 'UsersController@showMeasurement');
+
+});
+
+
+
+
+// Auth::routes(['verify' => true]);
+
+Route::get('/home', 'UsersController@index')
+    ->middleware('frontlogin');
+
+
 
 
 // Route::get('/measurements', function () {

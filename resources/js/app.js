@@ -42,8 +42,8 @@ Vue.use(VueToast, {
 // import {routes} from './routes';
 
 
-import VueFroala from 'vue-froala-wysiwyg'
-Vue.use(VueFroala)
+// import VueFroala from 'vue-froala-wysiwyg'
+// Vue.use(VueFroala)
 
 // import Vue from 'vue'
 // import axios from 'axios'
@@ -73,7 +73,7 @@ Vue.component('cart', require('./components/Cart.vue').default);
 
 Vue.component('shipping', require('./components/Shipping.vue').default);
 
-Vue.component('profile', require('./components/Profile.vue').default);
+// Vue.component('profile', require('./components/Profile.vue').default);
 
 Vue.component('home', require('./components/home/Home.vue').default);
 /**

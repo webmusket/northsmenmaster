@@ -6,7 +6,9 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Number;
-use Infinety\Filemanager\FilemanagerField;
+// use Infinety\Filemanager\FilemanagerField;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
+use Laravel\Nova\Fields\Image;
 use Waynestate\Nova\CKEditor;
 use PalauaAndSons\TagsField\Tags;
 use Laravel\Nova\Fields\Boolean;
@@ -99,7 +101,8 @@ class Readymadeproduct extends Resource
 
     protected function imageFields(){
         return[
-            FilemanagerField::make('Image')->displayAsImage(),
+            Image::make('Image'),
+
         ];
     }
     protected function priceFields(){

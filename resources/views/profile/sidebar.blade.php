@@ -3,17 +3,17 @@
     <div class="alert alert-secondary">
         <ul>
             <li>
-                <span>Md Arafat Rahman</span>
+                <span>{{Auth::user()->name}}</span>
             </li>
             <li>
-                <strong>Email:</strong> arafatraj@gmail.com
+                <strong>Email:</strong> {{Auth::user()->email}}
             </li>
         </ul>
     </div>
 
     <div class="list-group">
-    	<a href="/profiles" class="list-group-item list-group-item-action">Profiles</a>
-		<a href="/pending-carts" class="list-group-item list-group-item-action active">Pending Carts</a>
+    	<a href="/profile-info" class="list-group-item list-group-item-action">Profiles</a>
+		<a href="/pending-carts" class="list-group-item list-group-item-action ">Pending Carts</a>
 		<a href="/order-records" class="list-group-item list-group-item-action">Order records</a>
 		<a href="/wishlist" class="list-group-item list-group-item-action">Wish List</a>
 

@@ -12,16 +12,26 @@ class ShippingController extends Controller
     }
 
     public function shipping(){
-    	return view('courior.courior');
+    	try {
+    		return view('courior.courior');
+    	}catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
     }
 
     public function getshippinglevel($id = null){
-    	$transaction = \Shippo_Transaction::create( array( 
-		    'rate' => $id, 
-		    'label_file_type' => "PDF", 
-		    'async' => false ) );
+    	try { 
+	    	$transaction = \Shippo_Transaction::create( array( 
+			    'rate' => $id, 
+			    'label_file_type' => "PDF", 
+			    'async' => false ) );
 
-    	return $transaction;
+	    	return $transaction;
+	    }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
     }
 
     public function getshippingdata($userdata){

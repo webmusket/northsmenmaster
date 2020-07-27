@@ -67,6 +67,16 @@
                         <p>“Customize your own suit with our design editor. <br> Get the perfect style!” </p>
 </form>
 
+
+<form class="form" method="POST" action="{{url('/add-wishlist') }}">{{ csrf_field() }}
+            <input type="hidden" name="product_id" value="{{ $products->id }}">
+            <button type="submit" class="btn btn-secondary cart" id="cartButton">
+                <i class="fa fa-shopping-cart"></i>
+                Add to Wishlist
+            </button>
+        </form>
+
+@include('alert.message')
                         
                         <a href="customizationme.php" class="nsdrakbtn">Order as is</a>
                         <p>“Order the way it looks. <br> It is pre-customized with your style”.</p>
@@ -93,8 +103,6 @@
                             </li>
                         </ul>
                     </div>
-
-
 
                     <div class="single-product-share">
                         <h4>Share This on: </h4>

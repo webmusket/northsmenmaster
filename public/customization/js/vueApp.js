@@ -1,7 +1,7 @@
 var app = new Vue({ 
     el: '#app',
     data: {
-        styles: 'imge/front/front/neck_single_breasted+buttons_1+lapel_medium+style_lapel_notch.png',
+        styles: 'imge/front/front/neck_single_breasted+buttons_2+lapel_medium+style_lapel_notch.png',
         bstyles: 'imge/back/neck.png',
         fittings: '',
         bfittings: '',
@@ -389,11 +389,8 @@ var app = new Vue({
             this.bpocketPicked = $("input[name='breastpockets']:checked").val();
             this.pocketPicked = $("input[name='pockets']:checked").val();
             this.bsbuttonPicked = $("input[name='sleevebuttons']:checked").val();
-            this.ventPicked = $("input[name='vents']:checked").val();
+            this.ventPicked = $("input[name='vents']:checked").val();        
             
-            
-		    
-	        
     },
     
     savecustomization(){

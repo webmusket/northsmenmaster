@@ -11,24 +11,35 @@ class FilterproController extends Controller
 {
     public function getreadymadefilterproduct($url = null,$filter=null){
 
+        try {
+
         // preg_match_all('!\d+!', $filter, $matches);
-        $matches = array_map("intval", explode(",", $filter));
+            $matches = array_map("intval", explode(",", $filter));
 
 
-    	$category = Category::where('slug', $url)->first();
+        	$category = Category::where('slug', $url)->first();
 
-        $data = Readymadeproduct::orderBy('id', 'DESC')->whereJsonContains('category', $category->id)->whereJsonContains('category', $matches)->paginate(4);
+            $data = Readymadeproduct::orderBy('id', 'DESC')->whereJsonContains('category', $category->id)->whereJsonContains('category', $matches)->paginate(4);
 
-        return response()->json($data);
+            return response()->json($data);
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
     }
 
     public function getvirtualfilterproduct($url = null,$filter=null){
-    	$data = $filter;
+        try {
+        	$data = $filter;
 
-    	$category = Category::where('slug', $url)->first();
+        	$category = Category::where('slug', $url)->first();
 
-        $data = Virtualproduct::orderBy('id', 'DESC')->whereJsonContains('category', $category->id)->whereJsonContains('category', $data[0])->paginate(4);
+            $data = Virtualproduct::orderBy('id', 'DESC')->whereJsonContains('category', $category->id)->whereJsonContains('category', $data[0])->paginate(4);
 
-        return response()->json($data);
+            return response()->json($data);
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
+        }
     }
 }

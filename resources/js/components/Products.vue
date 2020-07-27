@@ -49,7 +49,7 @@
 						<h3>{{pro.title}}</h3>
 						<div class="product-tag">
 							<span class="orginal-price"><del>{{pro.sale_price }}</del></span>
-							<span class="sales-price">{{ getdiscountedprice(pro.sale_price)}}</span>
+							<span class="sales-price">{{pro.sale_price }}</span>
 							<span class="discounttg">10% OFF</span>
 						</div>
 					</div>
@@ -256,20 +256,20 @@
 				    });
 		    	}
 	    	},
-	    	getdiscountedprice(sale_price){
+	   //  	getdiscountedprice(sale_price){
 
-				let number = sale_price.match(/[0-9]+/g);
-				number = Number(number[0]);
+				// let number = sale_price.match(/[0-9]+/g);
+				// number = Number(number[0]);
 
-				return number;
+				// return number;
 				
-				const uri = '/getdiscountedprice/' + sale_price ;
-	    		this.$http.get(uri).then((response) => {  
-					// return response.data
-					console.log(response.data)
-				});
+				// const uri = '/getdiscountedprice/' + sale_price ;
+	   //  		this.$http.get(uri).then((response) => {  
+				// 	// return response.data
+				// 	console.log(response.data)
+				// });
 					
-	    	},
+	   //  	},
 	    	onbuttonClick(){
 	        	// this.filter.season =  "season"
 	        	// this.filter.fabric = 'fabric'

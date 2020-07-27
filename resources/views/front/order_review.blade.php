@@ -3,12 +3,7 @@
 
 <section id="cart_items">
 		<div class="container">
-			<div class="breadcrumbs">
-				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
-				  <li class="active">Order Review</li>
-				</ol>
-			</div><!--/breadcrums-->
+			<div style="height: 40px;"></div>
 
 			<div class="shopper-informations">
 				<div class="row">					
@@ -93,7 +88,7 @@
 						@foreach($userCart as $cart)
 						<tr>
 							<td class="cart_product">
-								<a href=""><img style="width:130px;" src="{{ asset('/images/backend_images/product/small/'.$cart->image) }}" alt=""></a>
+								<a href=""><img style="width:130px;" src="{{ url('storage/'.$cart->image) }}" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{ $cart->product_name }}</a></h4>
@@ -155,13 +150,19 @@
 						<label><strong>Select Payment Method:</strong></label>
 					</span>
 					<span>
-						<label><input type="radio" name="payment_method" id="COD" value="COD"> <strong>COD</strong></label>
+						<label><input  style="display: block;" type="radio" name="payment_method" id="COD" value="COD"> <strong>COD</strong></label>
 					</span>
 					<span>
-						<label><input checked type="radio" name="payment_method" id="Paypal" value="Paypal"> <strong>Paypal</strong></label>
+						<label><input checked type="radio" style="display: block;"  name="payment_method" id="Paypal" value="Paypal"> <strong>Paypal</strong></label>
 					</span>
+
+					<span>
+						<label><input checked type="radio" style="display: block;"  name="payment_method" id="Paypal" value="Stripe"> <strong>Stripe Payment</strong></label>
+					</span>
+
+
 					<span style="float:right;">
-						<button type="submit" class="btn btn-default" onclick="return selectPaymentMethod();">Place Order</button>
+						<button type="submit" class="btn btn-success" onclick="return selectPaymentMethod();">Place Order</button>
 					</span>
 				</div>
 			</form>

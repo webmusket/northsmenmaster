@@ -25,9 +25,9 @@
                             <tr>
                                 <th>
                                     <div class="cart-product">
-                                        <span><i class="fa fa-times"></i></span>
+                                        <a href="{{ url('/cart/delete/'.$cart->id) }}"><span><i class="fa fa-times"></i></span></a>
                                         <a href="#">{{ $cart->product_name }}</a>
-                                        <img src="/storage/{{$cart->image}}" alt="cart item">
+                                        <img src="storage/{{$cart->image}}" alt="cart item">
                                     </div>
                                 </th>
                                 <td>

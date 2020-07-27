@@ -10,25 +10,29 @@ class ReportController extends Controller
 {
     public function formSubmit(Request $request)
     {
-    	$type = $request->type;
-    	$from = $request->from;
-    	$to = $request->to;
-        $category = $request->category;
-        $duration = $request->duration;
+         try {
+        	$type = $request->type;
+        	$from = $request->from;
+        	$to = $request->to;
+            $category = $request->category;
+            $duration = $request->duration;
 
 
 
 
-    	if ($type == 'order') {
-            if (empty($from)) {
-                $from = ReportServices::dateformat($duration);
-                $to = date("Y-m-d");
+        	if ($type == 'order') {
+                if (empty($from)) {
+                    $from = ReportServices::dateformat($duration);
+                    $to = date("Y-m-d");
+                }
+
+        		$orders = Order::whereBetween('created_at', [$from, $to])->get();
+                return response()->json($orders);
             }
-
-    		$orders = Order::whereBetween('created_at', [$from, $to])->get();
-            return response()->json($orders);
+        }catch (\Exception $e) {
+            $error = $e->getMessage();
+            return view('error.404')->with('error');
         }
-
 
    
     }

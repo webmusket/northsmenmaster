@@ -21,29 +21,24 @@
                                 </div>
                             </div>
                         </div>
-
+                    @foreach($orders as $order)
+                    
                         <div class="row olist-item active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            
                             <div class="col-6">
-                                <strong>REF09876543</strong>
-                                <span>017174548454</span>
+                                <a class="btn-submit" href="{{url('order-details/'.$order->id)}}"><strong>{{$order->id}}</strong></a>
+                                <input type="hidden" name="id" value="{{$order->id}}">
+                                <span>{{$order->mobile}}</span>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="#" class="badge badge-success">Success</a>
-                                <p><span>01/22/2020</span></p>
+                                <a href="#" class="badge badge-success">{{$order->order_status}}</a>
+                                <p><span>{{$order->created_at}}</span></p>
                             </div>
+                            
                         </div>
-
-                        <div class="row olist-item" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                            <div class="col-6">
-                                <strong>REF09876543</strong>
-                                <span>017174548454</span>
-                            </div>
-                            <div class="col-6 text-right">
-                                <a href="#" class="badge badge-success">Success</a>
-                                <p><span>01/22/2020</span></p>
-                            </div>
-                        </div>
-
+                    
+                    @endforeach
+                       
                     </div>
 
 
@@ -74,27 +69,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  {{----  @foreach($results as $result)
                                     <tr>
                                         <td>
-                                            <div class="oderitm"><a href="#"><img src="./assets/img/testimonial-author-1.jpg" alt="image">ADATA USB 3.1 32GB Flash Drive</a></div>
+                                            <div class="oderitm"><a href="#"><img src="./assets/img/testimonial-author-1.jpg" alt="image">{{$result->product_name}}</a></div>
                                         </td>
-                                        <td>৳700.00 X 1</td>
-                                        <td class="pright">৳700.00</td>
+                                        <td>{{$result->product_price}} X {{$result->product_qty}}</td>
+                                        <td class="pright">$ {{$result->product_price * $result->product_qty}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="oderitm"><a href="#"><img src="./assets/img/testimonial-author-1.jpg" alt="image">ADATA USB 3.1 32GB Flash Drive</a></div>
-                                        </td>
-                                        <td>৳700.00 X 1</td>
-                                        <td class="pright">৳700.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="oderitm"><a href="#"><img src="./assets/img/testimonial-author-1.jpg" alt="image">ADATA USB 3.1 32GB Flash Drive</a></div>
-                                        </td>
-                                        <td>৳700.00 X 1</td>
-                                        <td class="pright">৳700.00</td>
-                                    </tr>
+                                    @endforeach ---}}
                                 </tbody>
                             </table>
                             <div class="ordertotal clearfix">
@@ -170,4 +153,11 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+   
+
+    
+</script>
 @endsection

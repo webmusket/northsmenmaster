@@ -6,7 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Number;
-use Infinety\Filemanager\FilemanagerField;
+// use Infinety\Filemanager\FilemanagerField;
 use Waynestate\Nova\CKEditor;
 use PalauaAndSons\TagsField\Tags;
 use Laravel\Nova\Fields\Boolean;
@@ -18,6 +18,7 @@ use Laravel\Nova\Panel;
 use Fourstacks\NovaRepeatableFields\Repeater;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Asad\Productsettings\Productsettings;
 
 class Virtualproduct extends Resource
 {
@@ -58,6 +59,10 @@ class Virtualproduct extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            ProductSettings::make(),
+
+
             TextWithSlug::make('Title')
                 ->slug('slug'),
 
@@ -101,9 +106,9 @@ class Virtualproduct extends Resource
 
     protected function imageFields(){
         return[
-            FilemanagerField::make('Image','front_image')->displayAsImage(),
-            FilemanagerField::make('Image','back_image')->displayAsImage(),
-            FilemanagerField::make('Image','fabric_image')->displayAsImage(),
+        //     FilemanagerField::make('Image','front_image')->displayAsImage(),
+        //     FilemanagerField::make('Image','back_image')->displayAsImage(),
+        //     FilemanagerField::make('Image','fabric_image')->displayAsImage(),
         ];
     }
     protected function priceFields(){

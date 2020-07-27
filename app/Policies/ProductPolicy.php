@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Admin;
 use App\Product;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -17,17 +17,12 @@ class ProductPolicy
      * @param  \App\Product  $product
      * @return mixed
      */
-    public function viewAny(User $user){
-        if ($user->can('view product')) {
-            return true;
-        }
+    public function viewAny(Admin $user){
+        return false;
     }
-
-    public function view(User $user, Product $product)
+    public function view(Admin $user, Product $product)
     {
-        if ( $user->can('view product') ) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -36,11 +31,9 @@ class ProductPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Admin $user)
     {
-        if ( $user->can('create product') ) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -50,11 +43,9 @@ class ProductPolicy
      * @param  \App\Product  $product
      * @return mixed
      */
-    public function update(User $user, Product $product)
+    public function update(Admin $user, Product $product)
     {
-        if ( $user->can('update product') ) {
-            return true;
-        }
+        //
     }
 
     /**
@@ -64,34 +55,9 @@ class ProductPolicy
      * @param  \App\Product  $product
      * @return mixed
      */
-    public function delete(User $user, Product $product)
-    {
-        if ( $user->can('delete product') ) {
-            return true;
-        }
-    }
-
-    /**
-     * Determine whether the user can restore the product.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Product  $product
-     * @return mixed
-     */
-    public function restore(User $user, Product $product)
+    public function delete(Admin $user, Product $product)
     {
         //
     }
 
-    /**
-     * Determine whether the user can permanently delete the product.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Product  $product
-     * @return mixed
-     */
-    public function forceDelete(User $user, Product $product)
-    {
-        //
-    }
 }

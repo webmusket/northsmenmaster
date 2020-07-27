@@ -82,16 +82,65 @@ Route::get('/jacketstyles', function () {
 // 	]);
 // });
 
-Route::get('/jacketaccents', function () {
-	$jacketaccents = Productstyle::with('styleoptions')->where('type','jacket')->where('cus_type','accent')->get();
-    return response()->json([
-	    'jacketaccents' => $jacketaccents,
-	]);
+// Route::get('/jacketaccents', function () {
+// 	$jacketaccents = Productstyle::with('styleoptions')->where('type','jacket')->where('cus_type','accent')->get();
+//     return response()->json([
+// 	    'jacketaccents' => $jacketaccents,
+// 	]);
+// });
+
+
+
+Route::get('/updatecussettings/{fabricname}/{checkedstyles}', function ($fabricname,$checkedstyles) {
+
+	$checked = explode(',', $checkedstyles);
+
+	$cuspro = App\Virtualproduct::where('slug',$fabricname)->first();
+
+	$exists = App\Customization::where('virtualproduct_id',$cuspro->id)->count();
+
+
+	if ($exists == 1) {
+
+		DB::table('customizations')
+            ->where('virtualproduct_id', $cuspro->id)
+            ->update([
+            	'jacket_type' => $checked[0],
+            	'lapel' => $checked[1],
+            	'fittings' => $checked[2],
+            	'brestpocket' => $checked[3],
+            	'pocket' => $checked[4],
+            	'sleeve_button' => $checked[5],
+            	'vent' => $checked[6],
+            ]);
+
+         return "customizations updated successfully";
+
+	}else{
+		$cus = new App\Customization();
+
+		$cus->virtualproduct_id =  $cuspro->id;
+		$cus->jacket_type =  $checked[0];
+		$cus->lapel =  $checked[1];
+		$cus->fittings =  $checked[2];
+		$cus->brestpocket =  $checked[3];
+		$cus->pocket =  $checked[4];
+		$cus->sleeve_button =  $checked[5];
+		$cus->vent =  $checked[6];
+		
+
+		$cus->save();
+
+		return "customizations updated successfully";
+
+	}
+
+	
+	
+ //    return response()->json([
+	//     'style' => $style,
+	// ]);
 });
-
-
-
-
 
 
 

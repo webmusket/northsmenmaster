@@ -19,22 +19,35 @@
                 <div class="refferfriend">
                     <h4>Give 10% and Get 10% off</h4>
                     <div class="email-subscription-form">
+                        <p class="form__label alert alert-danger">Referrer: {{ Auth::user()->referrer->username ?? 'Not Specified' }}<br>
+                    Refferal count: {{ count(Auth::user()->referrals)  ?? '0' }}</p>
                         <form action="index.html">
-                            <input type="email" placeholder="Email Address">
-                            <input type="submit" value="Copy Now">
+                            <input id="myInput" type="text" value="{{ Auth::user()->referral_link }}" placeholder="Email Address">
+                            <input onclick="myFunction()" class="btn btn-secondary"  value="Copy Now">
+                        </form>
+                        <form action="index.html">
+
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+                            <input  id="myInput" type="hidden" value="{{ Auth::user()->referral_link }}" placeholder="Email Address">
+                            <input onclick="myFunction()" class="btn btn-secondary"  value="Send Email">
                         </form>
                     </div>
                 </div>
 
                 <div class="socialicon">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i> Linkdin</a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i> Pinterest</a></li>
-                        <li><a href="#"><i class="fa fa-telegram"></i> Mail</a></li>
-                    </ul>
+
+                        <?php  
+
+                            $share = Share::page(Auth::user()->referral_link, 'Share title ssss')
+                                    ->facebook('Extra linkedin summary can be passed here')
+                                    ->twitter()
+                                    ->linkedin('Extra linkedin summary can be passed here')
+                                    ->whatsapp();
+
+                            echo($share);
+                        ?>      
+
                 </div>
 
                 <div class="refferlist">
@@ -43,42 +56,27 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Country</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $users =  Auth::user()->referrals; ?>
+                            @foreach($users as $user)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{$user->city}</td>
+                                <td>{{$user->state}}</td>
+                                <td>{$user->country}</td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
+                            @endforeach
+                            
                             
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                        </tfoot>
+                       
                     </table>
                 </div>
 

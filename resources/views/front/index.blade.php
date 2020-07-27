@@ -6,7 +6,6 @@
         <div class="row">
             <div class="col-lg-12">
 
-  
                 <div class="section-title">
                     <h2>Get Customized Now</h2>
                     <p>{{ trans('indexpage.custom')}}</p>
@@ -18,7 +17,7 @@
                 <div class="bk-product-box">
                     <div class="bk-single-product bk-single-product-bg1">
                         <div class="bk-single-pr-inner">
-                            <a href="customization.php" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
+                            <a href="/customization" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -29,7 +28,7 @@
                 <div class="bk-product-box">
                     <div class="bk-single-product bk-single-product-bg2">
                         <div class="bk-single-pr-inner">
-                            <a href="customization.php" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
+                            <a href="/customization" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -40,7 +39,7 @@
                 <div class="bk-product-box">
                     <div class="bk-single-product bk-single-product-bg3">
                         <div class="bk-single-pr-inner">
-                            <a href="customization.php" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
+                            <a href="/customization" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -53,7 +52,7 @@
                 <div class="bk-product-box">
                     <div class="bk-single-product bk-single-product-bg1">
                         <div class="bk-single-pr-inner">
-                            <a href="customization.php" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
+                            <a href="/customization" class="nslightbtn">Customize Now <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -64,7 +63,7 @@
                 <div class="bk-product-box">
                     <div class="bk-single-product bk-single-product-bg2">
                         <div class="bk-single-pr-inner">
-                            <a href="customization.php" class="nslightbtn">Shop Now <i class="fa fa-arrow-right"></i>
+                            <a href="/customization" class="nslightbtn">Shop Now <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
