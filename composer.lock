@@ -8,11 +8,11 @@
     "packages": [
         {
             "name": "acme/coupon-discount",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/CouponDiscount",
-                "reference": "dddbc500aa1c0723c3bfc6b1254f66ec8429dd6c"
+                "reference": "1574054ff8c57a1f7e8990e471a2a8952a232146"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -37,7 +37,10 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "ampeco/nova-date-range-filter",
@@ -84,11 +87,11 @@
         },
         {
             "name": "asad/invoicer",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/Invoicer",
-                "reference": "ab7371b23b7d94d1dab1d3688469e186f671a837"
+                "reference": "e9e97c3916721ed5e53556de36309f90d9a2e1c0"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -113,15 +116,18 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asad/menu-builder",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/MenuBuilder",
-                "reference": "1172b3b12e09a15a4e45755bb16bfecc0314fefb"
+                "reference": "10018e93dc0d66fe6c0d8c8ee87c9a7abd99d6be"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -146,15 +152,18 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asad/order-action",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/OrderAction",
-                "reference": "b4e96d308d0b9328437b75b011b3098c350a0e89"
+                "reference": "df9a968f8a78d2ed99420fdbadab5375e78d97c5"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -179,15 +188,18 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asad/product-style",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/ProductStyle",
-                "reference": "c47fb7d6c7eb3452512d2908ea8a2f1ed77a338c"
+                "reference": "b5a76b389b19ed8ede33630d67959b1fa66e0e90"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -212,15 +224,18 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asad/productsettings",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/Productsettings",
-                "reference": "8d296c0841a66088015a570a676684d5b4f366f0"
+                "reference": "2c04e8bc5febed99f1e8a932b940cae0d1195594"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -245,15 +260,18 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asad/report",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/Report",
-                "reference": "a5317268e7f5f3e6232e297134a7b7443079b525"
+                "reference": "bac2d8a07561bd54188b1742a9c14933f6178b82"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -278,15 +296,18 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asad/settings",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/Settings",
-                "reference": "a01dedb312c417d11140581437b812954c412fbe"
+                "reference": "d2344ed47c4690337507b589e226cfb5d01da286"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -311,15 +332,18 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asad/site-settings",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/SiteSettings",
-                "reference": "15449e8bb8c704895aef631d54939b8ae2a3466e"
+                "reference": "36aa65ae506184a2263ee393144bf2736ac77e9a"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -344,7 +368,10 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -453,11 +480,11 @@
         },
         {
             "name": "blueknot/super-category",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/SuperCategory",
-                "reference": "a578897a9e3208d624e5d658eba394e124998e0b"
+                "reference": "0007e74e0d4072f32114aec40859a63be0c574e1"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -482,7 +509,10 @@
             "keywords": [
                 "laravel",
                 "nova"
-            ]
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "brick/math",
@@ -1990,16 +2020,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.6.1",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
                 "shasum": ""
             },
             "require": {
@@ -2012,24 +2042,24 @@
             },
             "require-dev": {
                 "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
             },
             "suggest": {
-                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2037,12 +2067,33 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
                     "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
                 }
             ],
@@ -2057,7 +2108,25 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-07-01T23:21:34+00:00"
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/1.8.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-03-20T21:51:18+00:00"
         },
         {
             "name": "infinety-es/nova-filemanager",
@@ -4032,6 +4101,9 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
@@ -4295,6 +4367,10 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
@@ -8865,5 +8941,6 @@
     "platform": {
         "php": "^7.1.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
